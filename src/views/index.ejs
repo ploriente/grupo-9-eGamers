@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<!-- /Header -->
+	
+	<!-- Banner -->
+	<div class="banner"></div>
+	<!-- /Banner -->
+
+	<!-- Nuevos juegos -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Nuevos Lanzamientos (<%= productosNuevos.length %>)</h2>
+			</div>
+			<!-- Mostrar los juegos Nuevos dinámicamente (usando un for o foreach) -->
+			<% productosNuevos.forEach(producto => { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/detail/<%= producto.id %>">
+							<figure class="product-box_image">
+								<img src="/images/products/<%= producto.image %>" alt="imagen de producto">
+							</figure>
+							<article class="product-box_data">
+								<h2>$<%= producto.price %></h2>
+								<span><%= producto.discount %> % </span>
+								<p><%= producto.name %></p>
+								<i class="fas fa-truck"></i>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% }) %>
+			
+		</div>
+	</div>
+	<!-- /juegos nuevos -->
+
+	<!-- Ofertas -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Ofertas (<%= productosEnOferta.length %>)</h2>
+			</div>
+			<!-- Mostrar los juegos EN OFERTA dinámicamente (usando un for o foreach) -->
+			<% productosEnOferta.forEach(producto => { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/detail/<%= producto.id %>">
+							<figure class="product-box_image">
+								<img src="/images/products/<%= producto.image %>" alt="imagen de producto">
+							</figure>
+							<article class="product-box_data">
+								<h2>$<%= producto.price %></h2>
+								<span><%= producto.discount %> % </span>
+								<p><%= producto.name %></p>
+								<i class="fas fa-truck"></i>
+							</article>
+						</a>
+					</section>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+	<!-- /Ofertas -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>
