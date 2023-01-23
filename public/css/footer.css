@@ -1,0 +1,95 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Chivo Mono', monospace;
+    }
+
+
+/*////////////////////////////////////////////////////////////*/
+/*/////////////////// FOOTER /////////////////////////////////*/
+/*////////////////////////////////////////////////////////////*/
+
+footer {
+    background-color: #011627;
+    min-height: 200px;
+    padding: 20px;
+    color: #FFFFFF;
+    /*  poner footer abajo */
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 350px;
+}
+
+.footer-global {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: wrap;
+    /*
+    border-style: solid;
+    border-color: blue;*/
+
+}
+
+section {
+    width: 90%;
+}
+
+.footer-global h3 {
+    padding-top: 4px;
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.wording {
+    font-size: 15px;
+    font-weight: light;
+    padding-bottom: 5px;
+}
+
+.footer-global ul li {
+    font-size: 12px;
+    font-weight: light;
+}
+
+.copyright {
+    font-size: 12px;
+    text-align: left;
+}
+
+section {
+    padding: 10px;
+}
+
+/*////////////////////////////////////////////////////////////*/
+/*/////////////////// MEDIA QUERIES //////////////////////////*/
+/*////////////////////////////////////////////////////////////*/
+
+
+@media (min-width: 700px) {
+
+    section {
+        width: 45%;
+    }
+
+}
+
+@media (min-width: 900px) {
+
+    section {
+        width: 24%;
+    }
+
+}
+

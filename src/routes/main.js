@@ -7,6 +7,7 @@ const mainController = require('../controllers/mainController');
 
 router.get('/', mainController.index);
 
+
 /* Quiten el comentario y editen según el enunciado
 
 router.???('/search', mainController.search);

@@ -1,0 +1,67 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Chivo Mono', monospace;
+}
+
+main {
+    /*
+    border-style: solid;
+    border-color: blue;*/
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+.caja-main{
+    width: 80%;
+    height: 80%;
+    background-color: lightgray;
+    margin: 50px;
+    text-align: center;
+}
+
+.formulario-register {
+    padding: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.campo {
+    display: block;
+    margin-bottom: 2rem;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 15px;
+}
+
+
+button, input {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.boton-entrar button{
+    background-color: #03264C;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 2%;
+    width: 100%;
+}
+
+
