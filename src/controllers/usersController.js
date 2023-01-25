@@ -4,13 +4,11 @@ const path = require("path")
 
 
 const usersController = {
-    login: function(req, res){
-        let login = path.join(__dirname, "/users/login.ejs")
-        res.render(login)
+    login: function(req, res){ 
+        res.render("./users/login")
     },
     register: function(req, res){
-        let register = path.join(__dirname, "/users/register.ejs")
-        res.render(register)
+        res.render("./users/register")
     },
     
 }
