@@ -165,5 +165,15 @@
   "image": "productImage-1673993664951.jpg",
   "newGame": true,
   "inOffer": false
+ },
+ {
+  "id": 17,
+  "name": "HolisV2",
+  "price": "123",
+  "discount": "No",
+  "description": "asd",
+  "image": "productImage-1674608768522.png",
+  "newGame": false,
+  "inOffer": true
  }
 ]
