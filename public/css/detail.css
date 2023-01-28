@@ -53,6 +53,7 @@ main{
 .product-title{
     padding-top: 10px;
     padding-bottom: 15px;
+    color: #00467f;
 }
 
 .product-detail{
@@ -80,4 +81,64 @@ main{
     background-color: lightgray;
     border-radius: 5px;
     margin: 15px;
+}
+
+.product-detail-info{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-detail-title{
+    padding-bottom: 20px;
+}
+
+button, input {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.botones-eliminar-editar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div .campo{
+    width: 50%;
+    padding: 40px;
+}
+
+.campo-boton-eliminar button {
+    width: 260px;
+    padding: 0.75rem;
+    background-color: #03264C;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+
+.campo-boton-editar button {
+    width: 260px;
+    padding: 0.75rem;
+    background-color: #03264C;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+.campo-boton-comprar button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    border-radius: 4px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }

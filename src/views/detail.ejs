@@ -33,7 +33,7 @@
 
 				<div class="box-derecha">
 					<article class="product-detail-info">
-						<h2 class="product-detail-title"> Información Del Producto</h2>
+						<h2 class="product-detail-title"> Información De Pago</h2>
 						
 							<p class="product-detail-price small">
 								<span>$<%= producto.price %></span>
@@ -55,12 +55,27 @@
 							</li>
 						</ul>
 
-						<a href="#" class="buy-now-button">COMPRAR AHORA</a>
-						<hr>
+							<div class="campo-boton-comprar">
+								<button type="submit" class="action-button-comprar">COMPRAR AHORA</button>
+							</div>
 
-						<a href="/products/edit/<%= producto.id %>" class="action-button edit">EDITAR JUEGO</a>
+							<div class="botones-eliminar-editar"> 
+						
+						<!-- <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" style="display: inline-flex"> -->
+						
+							<div class="campo-boton-editar">
+								<button type="submit" class="action-button-edit">EDITAR</button>
+							</div>
+						
+						<!-- </form> -->
+
 						<form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-							<button type="submit" class="action-button delete">ELIMINAR</button>
+							
+							<div class="campo-boton-eliminar">
+								<button type="submit" class="action-button-delete">ELIMINAR</button>
+							</div>
+
+							</div>
 						</form>
 					</article>
 				</div>

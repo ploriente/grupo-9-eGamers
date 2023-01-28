@@ -1,29 +1,5 @@
 [
  {
-  "id": 1,
-  "name": "God Of War Ragnarok",
-  "price": 100,
-  "discount": 0,
-  "description": "Unete a esta nueva aventura Junto a Kratos para poner fin a Asgard",
-  "players": 1,
-  "image": "godOfWar.jpg",
-  "genre": "Accion",
-  "newGame": true,
-  "inOffer": false
- },
- {
-  "id": 2,
-  "name": "God Of War 4",
-  "price": 70,
-  "discount": 35,
-  "description": "Unete a Kratos y descubre un nuevo mundo y nuevos dioses",
-  "players": 1,
-  "image": "God_of_war_4.webp",
-  "genre": "Accion",
-  "newGame": false,
-  "inOffer": true
- },
- {
   "id": 3,
   "name": "God Of War 3",
   "price": "30",
@@ -125,14 +101,15 @@
  },
  {
   "id": 13,
-  "name": "DRAGON BALL Z: KAKAROT",
-  "price": "120",
-  "discount": "35",
-  "genre": "Accion",
-  "description": "¡Revive la historia de Goku y otros guerreros Z en DRAGON BALL Z.",
-  "image": "productImage-1673901474424.jpg",
+  "name": "NBA 2023 - Aguante Boke",
+  "price": 70,
+  "discount": 10,
+  "description": "El video juego de fubaloncesto del año, con  Rafael Diseo jugando en LA Lakers",
+  "players": "multiplayer",
+  "image": "nba2k23.jpg",
+  "genre": "Deportes",
   "newGame": true,
-  "inOffer": true
+  "inOffer": false
  },
  {
   "id": 14,
@@ -152,7 +129,7 @@
   "genre": "indefinida",
   "description": "Disfruta de la experiencia en GTA Online.",
   "image": "productImage-1673928137498.jpg",
-  "newGame": false,
+  "newGame": true,
   "inOffer": false
  },
  {
@@ -165,5 +142,27 @@
   "image": "productImage-1673993664951.jpg",
   "newGame": true,
   "inOffer": false
- }
+ },
+ {
+    "id": 17,
+    "name": "Grand Theft Auto Online",
+    "price": "200",
+    "discount": "40",
+    "genre": "indefinida",
+    "description": "Disfruta de la experiencia en GTA Online.",
+    "image": "productImage-1673928137498.jpg",
+    "newGame": false,
+    "inOffer": false
+   },
+   {
+    "id": 18,
+    "name": "Grand Theft Auto Online",
+    "price": "200",
+    "discount": "40",
+    "genre": "indefinida",
+    "description": "Disfruta de la experiencia en GTA Online.",
+    "image": "productImage-1673928137498.jpg",
+    "newGame": false,
+    "inOffer": false
+   }
 ]
