@@ -48,28 +48,30 @@ main{
     margin-bottom: 30px;
 
   }
-  
-  .game-title {
-    font-size: 0.9em;
-    font-weight: 500;
+
+.game-title {
+    font-size: 1.4em;
+    font-weight: 900;
     color: var(--gray);
     padding-top: 10px;
+    color: #00467f;
   }
 
-  .game-description {
-    font-size: 0.7em;
+.game-description {
+    font-size: 0.9em;
     font-weight: 300;
     color: var(--gray);
     padding-top: 10px;
   }
   
-  .product-box{
+  
+.product-box{
     transition: all 0.3s ease-in-out;
-    max-height:300px;
+    min-height: 350px;
   }
   
-  .product-box:hover{
-    max-height: 400px;
+.product-box:hover{
+    max-height: 500px;
   }
 
   .product-box {
@@ -100,18 +102,28 @@ main{
   }
   
   .product-box-data h2 {
-    font-size: 2.4em;
-    font-weight: 300;
+    font-size: 2em;
+    font-weight: 900;
     margin: 0;
-    color: #011627;
+    color: #4c5b68;
   }
   
   .product-box-data span {
-    font-size: 1.5em;
-    font-weight: 300;
     color: var(--green);
     margin: 0 0 0 10px;
-    color: #011627;
+    border-radius: 2.5px;
+    background-color: #00a80b;
+  }
+
+  .product-box-data span p{
+    font-size: 1.2em;
+    font-weight: 900;
+    color: var(--green);
+    margin: 0 0 0 10px;
+    color: rgb(117, 255, 107);
+    margin: 5px;
+    border-radius: 2.5px;
+    background-color: #00a80b;
   }
   
   .game-tittle{
