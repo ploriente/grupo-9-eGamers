@@ -1,6 +1,11 @@
 /**** Home *****/
 
-
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Chivo Mono', monospace;
+    }
 
 
 
@@ -8,8 +13,136 @@
                   INDEX 
 ********************************************/
 
+#figure-banner{
+    background-color: #c0c0c0;
+    width: 100%;
+    padding-bottom: 0px;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
 #banner-img {
     width: 100%;
+    background-color: #c0c0c0;
+  }
+
+main{
+    background-color: #c0c0c0;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+/*====== Products ======*/
+
+.container{
+    background-color: #c0c0c0;
+}
+
+.products-wrapper {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+  }
+  
+  .products-title {
+    font-size: 2.4em;
+    font-weight: 400;
+    color: var(--gray);
+  }
+  
+  .product-box {
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 300ms;
+    margin: 20px 0;
+  }
+  
+  .product-box a {
+    display: block;
+  }
+  
+  .product-box_image {
+    border-bottom: 1px solid var(--gray);
+  }
+  
+  .product-box_data {
+    padding: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .product-box_data h2 {
+    font-size: 2.4em;
+    font-weight: 300;
+    margin: 0;
+  }
+  
+  .product-box_data span {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: var(--green);
+    margin: 0 0 0 10px;
+  }
+  
+  .product-box_data p {
+    font-size: 1.5em;
+    width: 100%;
+    color: var(--gray);
+    margin: 0;
+    height: 0;
+    transition: 300ms;
+    overflow: hidden;
+  }
+  
+  .product-box_data i {
+    color: var(--gray);
+    font-size: 1.8em;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border: solid 1px;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 300ms;
+  }
+  
+  .product-box:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .product-box:hover p {
+    height: 40px;
+    margin-top: 15px;
+  }
+  
+  .product-box:hover i {
+    transform: rotate(360deg);
+    box-shadow: 0 0 5px var(--gray);
+  }
+  
+  .product-box figure {
+    width: 210px;
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 350px;
+    margin: auto;
+    transition: background-color .5s;
   }
 
 
@@ -18,7 +151,7 @@
                   Tablet 
 ********************************************/
 
-/*
+
 
 @media (min-width: 361px){
 
@@ -30,15 +163,14 @@
         width: 45%; 
     }
 
-}*/
+
 /********************************************
                   Desktop 
 ********************************************/
 
-/*@media (min-width: 769px){
+@media (min-width: 769px){
     .producto{
         width: 23%;
     }
 }
 
-*/
