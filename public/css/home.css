@@ -1,66 +1,24 @@
 /**** Home *****/
 
+
+
+
+
 /********************************************
-                  Mobile 
+                  INDEX 
 ********************************************/
 
-.main{
-    background-color: #ebebeb;
-    width: 90%;
-    margin: auto;
-}
-
-.categorias{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.titular{
-    font-size: 24px;
+#banner-img {
     width: 100%;
-    margin: 1rem 0;
-}
-
-.producto{
-    display: flex;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-figure {
-    width: 210px;
-    border: thin #c0c0c0 solid;
-    display: flex;
-    flex-flow: column;
-    padding: 5px;
-    max-width: 350px;
-    margin: auto;
-    transition: background-color .5s;
-}
-
-figure:hover {
-    background-color:  #d32213;
-}
-
-img {
-    width: 198px;
-    max-width: 350px;
-    max-height: 300px;
-}
-
-figcaption {
-    background-color: #222;
-    color: #fff;
-    font: italic smaller sans-serif;
-    padding: 3px;
-    text-align: center;
-}
+  }
 
 
 
 /********************************************
                   Tablet 
 ********************************************/
+
+/*
 
 @media (min-width: 361px){
 
@@ -72,13 +30,15 @@ figcaption {
         width: 45%; 
     }
 
-}
+}*/
 /********************************************
                   Desktop 
 ********************************************/
 
-@media (min-width: 769px){
+/*@media (min-width: 769px){
     .producto{
         width: 23%;
     }
 }
+
+*/
