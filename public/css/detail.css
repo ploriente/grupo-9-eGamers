@@ -1,0 +1,83 @@
+/**** Detail *****/
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Chivo Mono', monospace;
+    }
+
+
+
+/********************************************
+                  DETAIL 
+********************************************/
+
+main{
+    background-color: #c0c0c0;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.container-products-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 85%;
+    align-items: normal;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.box-izquierda{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 400px;
+    width: 48%;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin: 15px;
+}
+
+.product-title{
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.product-detail{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+.product-detail-img{
+    border-radius: 3px;
+    margin: 15px;
+}
+
+
+.box-derecha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    min-height: 400px;
+    width: 48%;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin: 15px;
+}

@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
+<head>
+	<link rel="stylesheet" href="/css/detail.css">
+</head>
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Detalles'}) %>
+<%- include('partials/head', {title: 'Detalle'}) %>
+
 <body>
 	<!-- Header -->
-	<%- include('partials/headerNavbar') %>
+	<%- include('partials/header') %>
 	<!-- /Header -->
 
+<main>
+
 	<!-- product detail -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Detalle del juego: <%= producto.name %> </h2>
+	<div class="container-products-wrapper">
+		<div class="box-izquierda">
+
+			<figure class="product-detail-img">
+					<img src="/images/products/<%= producto.image %>" alt="product image" class="product-detail-img">
+					</figure>
+			
+		
+			<div class="product-detail">
+
+					<h2 class="product-title">Detalle del juego: <%= producto.name %> </h2>
+
+					<p class="product-detail-description"><%= producto.description %></p>
 			</div>
 		</div>
-		<div class="product-detail">
-			<div class="row">
-				<div class="col-12 col-lg-8">
-					<img src="/images/products/<%= producto.image %>" alt="product image" class="product-detail-img">
-					<p class="product-detail-description">
-						<%= producto.description %>
-					</p>
-				</div>
-				<div class="col-12 col-lg-4">
+
+				<div class="box-derecha">
 					<article class="product-detail-info">
-						<h2 class="product-detail-title"><%= producto.name %></h2>
+						<h2 class="product-detail-title"> Información Del Producto</h2>
 						
 							<p class="product-detail-price small">
 								<span>$<%= producto.price %></span>
