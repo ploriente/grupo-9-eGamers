@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
 <%- include('../partials/head', {title: 'Login'}) %>
 
 <body>
@@ -10,56 +14,7 @@
                         Header 
 ************************************************************************-->
 
-    <header class="header-global">
-        
-        <div class="top-nav">
-
-            <div class="burger-menu"><a href="menu">
-                
-                <i class="fa-sharp fa-solid fa-bars"></i> 
-            </a> 
-            </div>
-
-            <div class="menu-store">
-                        <p class="item-menu"><a href="/">Home</a></p>
-                        <p class="item-menu"><a href="store">Catálogo</a></p>
-                        <p class="item-menu"><a href="productCart">Mis Compras</a></p>
-            </div>
-
-            <div class="egamers-logo">
-                <a href="/">
-                    <img id="logo" src="img/logo-test.jpg" alt= "Logo eGamers">
-            </a>
-            </div>
-
-
-            <div class="menu-user">
-                <p class="item-menu"><a href="login">Ingresar</a></p>
-                <p class="item-menu"><a href="register">Registro</a></p>
-            </div>
-    
-
-            <div class="cart">
-
-                <i class="fa-sharp fa-solid fa-cart-shopping"></i>
-
-            </div>
-
-        </div>
-
-
-        <div class="search-container">
-
-            <form action="/action_page.php" class="search-form">
-              <input class="search-input" type="text" placeholder="Buscar juego, categoría, etc." name="search">
-              <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
-            </form>
-
-        </div>
-        
-
-        
-    </header>
+<%- include('../partials/header', {title: 'Login'}) %>    
 
 <!--***********************************************************************
                         Login Page

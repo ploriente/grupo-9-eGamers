@@ -1,157 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-   
+
+<head>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<%- include('../partials/head', {title: 'Register'}) %>
+
 <body>
-
-
-    <header class="header-global">
-        
-        <div class="top-nav">
-
-            <div class="burger-menu"><a href="menu">
-                
-                <i class="fa-sharp fa-solid fa-bars"></i> 
-            </a> 
-            </div>
-
-            <div class="menu-store">
-                        <p class="item-menu"><a href="/">Home</a></p>
-                        <p class="item-menu"><a href="store">Catálogo</a></p>
-                        <p class="item-menu"><a href="productCart">Mis Compras</a></p>
-            </div>
-
-            <div class="egamers-logo">
-                <a href="/">
-                    <img id="logo" src="img/logo-test.jpg" alt= "Logo eGamers">
-            </a>
-            </div>
-
-
-            <div class="menu-user">
-                <p class="item-menu"><a href="login">Ingresar</a></p>
-                <p class="item-menu"><a href="register">Registro</a></p>
-            </div>
     
 
-            <div class="cart">
-
-                <i class="fa-sharp fa-solid fa-cart-shopping"></i>
-
-            </div>
-
-        </div>
-
-
-        <div class="search-container">
-
-            <form action="/action_page.php" class="search-form">
-              <input class="search-input" type="text" placeholder="Buscar juego, categoría, etc." name="search">
-              <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
-            </form>
-
-        </div>
-        
-
-        
-    </header>
-
 <!--***********************************************************************
-                        Home
+                        Header 
 ************************************************************************-->
 
-<main>
-    <div class="caja-main">
+<%- include('../partials/header', {title: 'Login'}) %>    
 
-        <form action="/login" method="get" class="formulario-register">
-            <div class="campo">
-                <input type="email" name="mail" placeholder="Ingresa tu Mail" required="">
-            </div>
-            <div class="campo">
-                <input type="text" name="usuario" placeholder="Ingresa tu nuevo Usuario" required="">
-            </div>
-            <div class="campo">
-                <input type="password" name="contraseña" placeholder="Ingresa tu nueva Contraseña" required="">
-            </div>
-            <div class="campo">
-                <input type="password" name="contraseñaRepite" placeholder="Repite la contraseña" required="">
-            </div>
-            <div class="campo boton-entrar">
-                <button type="submit">Crear cuenta</button>
-            </div>
-        </form>
+<!--***********************************************************************
+                        Register
+************************************************************************-->
+
+
+<main class="main-register-section">
+
+    <div class="register-widget">
+
+            <form action="/" method="post" class="formulario-register">
+                    <div class="campo">
+                        <input type="text" name="mail" placeholder="Dirección de email" required="">
+                    </div>
+                    <div class="campo">
+                        <input type="password" name="usuario" placeholder="Nombre de usuario" required="">
+                    </div>
+                    <div class="campo">
+                        <input type="password" name="contraseña" placeholder="Contraseña" required="">
+                    </div>
+                    <div class="campo">
+                        <input type="password" name="contraseñaRepite" placeholder="Repetir Contraseña" required="">
+                    </div>
+                    <div class="campo, boton-crear">
+                        <button type="submit">Crear Usuario</button>
+                    </div>
+            </form>
+
     </div>
-</main>
+</main> 
 
 <!--***********************************************************************
                         Footer 
 ************************************************************************-->
 
-    <footer>
-
-        <div class="footer-global">
-
-            <section class="about-us">
-                <h3 class="logo-mini">
-                    eGamers
-                </h3>
-                <p class="wording">
-                    Lorem ipsum dolor sit amet 
-                </p>
-            </section>
-
-            <section class="contact">
-                <h3>
-                    Contacto
-                </h3>
-
-                <p class="wording">
-                    Envíanos tu consulta: 
-                </p>
-
-                <ul>
-                    <li><i class="fa-brands fa-whatsapp"></i> +54 9 11 1111 1111</li>
-                    <li><i class="fa-solid fa-envelope"></i> hola@egamers.com</li>
-                </ul>
-
-            </section>
-
-            <section class="payment-options">
-                <h3>
-                    Opciones de Pago
-                </h3>
-
-                <ul>
-                    <li><i class="fa-regular fa-credit-card"></i> Tarjeta de crédito y débito</li>
-                    <li><i class="fa-solid fa-building-columns"></i> Transferencia</li>
-                    <li><i class="fa-brands fa-bitcoin"></i> Criptomonedas</li>
-                </ul>
-
-            </section>
-
-            <section class="social-media">
-                <h3>
-                    Redes Sociales
-                </h3>
-
-                <ul>
-                    <li><i class="fa-brands fa-instagram"></i> Instagram</li>
-                    <li><i class="fa-brands fa-facebook"></i> Facebook</li>
-                    <li><i class="fa-brands fa-tiktok"></i> TikTok</li>
-                    <li><i class="fa-brands fa-twitter"></i> Twitter</li>
-                    <li><i class="fa-brands fa-youtube"></i> YouTube</li>
-                </ul>
-
-            </section>
-
-        </div>
-
-            <section>
-                <h3 class="copyright">Copyright © 2022 eGamers S.R.L.</h3>
-            </section>
-    
-       
-
-    </footer>
+<!-- footer -->
+<%- include('../partials/footer') %>
+<!-- /footer -->
         
 
 
