@@ -8,20 +8,20 @@
   "players": 1,
   "image": "godOfWar.jpg",
   "genre": "Accion",
-  "newGame": false,
-  "inOffer": true
+  "newGame": true,
+  "inOffer": false
  },
  {
   "id": 2,
   "name": "God Of War 4",
   "price": 70,
-  "discount": 15,
+  "discount": 35,
   "description": "Unete a Kratos y descubre un nuevo mundo y nuevos dioses",
   "players": 1,
   "image": "God_of_war_4.webp",
   "genre": "Accion",
   "newGame": false,
-  "inOffer": false
+  "inOffer": true
  },
  {
   "id": 3,
@@ -37,35 +37,35 @@
   "id": 4,
   "name": "Ghost of Tshushima",
   "price": "80",
-  "discount": "20",
+  "discount": "50",
   "description": "Jin Sakai, heredero al trono del emperador renuncia a su honor, para tomar venganza de los mongoles como el fantasma de Tsushima",
   "image": "editedProductImage-1673905513629.jpg",
   "newGame": false,
-  "inOffer": true
+  "inOffer": false
  },
  {
   "id": 5,
   "name": "Spider-man",
   "price": 80,
-  "discount": 20,
+  "discount": 75,
   "description": "Ayuda a Peter Parker a mantener Nueva York a salvo de las garras de los 6 siniestros",
   "players": 1,
   "image": "spiderMan.jpg",
   "genre": "Aventuras",
   "newGame": false,
-  "inOffer": false
+  "inOffer": true
  },
  {
   "id": 7,
   "name": "The Last Of Us",
   "price": 60,
-  "discount": 20,
+  "discount": 10,
   "description": "En un mundo gobernado por zombies, Joel atraviesa el país con el objetivo de encontrar la cura",
   "players": 1,
   "image": "The_Last_of_Us.webp",
   "genre": "Terror",
   "newGame": false,
-  "inOffer": false
+  "inOffer": true
  },
  {
   "id": 8,
@@ -83,7 +83,7 @@
   "id": 9,
   "name": "Resident Evil 4",
   "price": "100",
-  "discount": "10",
+  "discount": "40",
   "description": "Sobrevive otra vez en este mundo plagado de zombies",
   "image": "editedProductImage-1673902807810.jpg",
   "newGame": false,
@@ -127,12 +127,12 @@
   "id": 13,
   "name": "DRAGON BALL Z: KAKAROT",
   "price": "120",
-  "discount": "5",
+  "discount": "35",
   "genre": "Accion",
   "description": "¡Revive la historia de Goku y otros guerreros Z en DRAGON BALL Z.",
   "image": "productImage-1673901474424.jpg",
   "newGame": true,
-  "inOffer": false
+  "inOffer": true
  },
  {
   "id": 14,
@@ -142,7 +142,7 @@
   "description": "Con las nuevas variantes de personaje tendrás un control sin precedentes para personalizar a tus luchadores y hacerlos únicos.",
   "image": "editedProductImage-1673928064951.jpg",
   "newGame": false,
-  "inOffer": true
+  "inOffer": false
  },
  {
   "id": 15,
@@ -152,7 +152,7 @@
   "genre": "indefinida",
   "description": "Disfruta de la experiencia en GTA Online.",
   "image": "productImage-1673928137498.jpg",
-  "newGame": true,
+  "newGame": false,
   "inOffer": false
  },
  {
