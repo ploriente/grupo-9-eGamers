@@ -6,6 +6,8 @@
 
 > Ecommerce de videojuegos para gamers aficionados.
 
+#### Tablero Trello: [Grupo 9 | Trello](https://trello.com/b/7eohiGSv/grupo-9)
+
 #### Grupo 9 - Integrantes:
 
 * Lisandro Florentín: Economista argentino. Entusiasta del desarrollo de producto y tecnología.   
