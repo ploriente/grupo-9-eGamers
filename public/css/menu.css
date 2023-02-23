@@ -1,0 +1,42 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Chivo Mono', monospace;
+    background-color: black;
+    }
+
+a {
+    text-decoration: none;
+    color: #FFFFFF; 
+}
+
+.top-of-menu{
+    padding: 30px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: xx-large;
+    display: flex;
+    justify-content: space-between
+}
+
+.menu-store-mobile{
+    padding: 30px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: x-large;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.menu-user-mobile{
+    padding: 30px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: x-large;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+

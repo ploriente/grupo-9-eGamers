@@ -1,0 +1,221 @@
+/**** Home *****/
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Chivo Mono', monospace;
+    }
+
+
+
+/********************************************
+                  INDEX 
+********************************************/
+
+#figure-banner{
+    background-color: #c0c0c0;
+    width: 100%;
+    padding-bottom: 0px;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#banner-img {
+    width: 100%;
+    background-color: #c0c0c0;
+  }
+
+main{
+    background-color: #c0c0c0;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+/*====== Products ======*/
+
+.container{
+    background-color: #c0c0c0;
+}
+
+.products-wrapper {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+  }
+
+.game-title {
+    font-size: 1.4em;
+    font-weight: 900;
+    color: var(--gray);
+    padding-top: 10px;
+    color: #00467f;
+  }
+
+.game-description {
+    font-size: 0.9em;
+    font-weight: 300;
+    color: var(--gray);
+    padding-top: 10px;
+  }
+  
+  
+.product-box{
+    transition: all 0.3s ease-in-out;
+    min-height: 350px;
+  }
+  
+.product-box:hover{
+    max-height: 500px;
+  }
+
+  .product-box {
+    background-color: white;
+    border-radius: 5px;
+    transition: 300ms;
+    margin: 20px 0;
+  }
+  
+  .product-box a {
+    display: block;
+    overflow: hidden;
+
+  }
+  
+  .product-box-image img {
+    border-bottom: 1px solid var(--gray);
+    border-radius: 5px;
+  }
+  
+  .product-box-data {
+    padding: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #011627;
+  }
+  
+  .product-box-data h2 {
+    font-size: 2em;
+    font-weight: 900;
+    margin: 0;
+    color: #4c5b68;
+  }
+  
+  .product-box-data span {
+    color: var(--green);
+    margin: 0 0 0 10px;
+    border-radius: 2.5px;
+    background-color: #00a80b;
+  }
+
+  .product-box-data span p{
+    font-size: 1.2em;
+    font-weight: 900;
+    color: var(--green);
+    margin: 0 0 0 10px;
+    color: rgb(117, 255, 107);
+    margin: 5px;
+    border-radius: 2.5px;
+    background-color: #00a80b;
+  }
+  
+  .game-tittle{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .product-box-data p .game-title{
+    font-size: 1em;
+    width: 100%;
+    color: var(--gray);
+    margin: 0;
+    height: 0;
+    transition: 300ms;
+    color: #011627;
+  }
+
+
+  .product-box-data p .game-description:hover {
+    height: auto; 
+    font-size: 1em; 
+    overflow: visible;
+    font-size: 0.3em;
+    width: 100%;
+    color: var(--gray);
+    margin: 0;
+    height: 0;
+    transition: 300ms;
+    color: #011627;
+}
+
+.product-box .game-description {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  .product-box:hover .game-description {
+    max-height: 100px;
+  }
+  
+  .product-box .game-description{
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .product-box:hover {
+    box-shadow: 0 0 20px rgb(110, 255, 197);
+  }
+
+  .product-box{
+    transition: 0.3s ease-in-out;
+  }
+  
+  
+  .product-box figure {
+    width: 210px;
+    display: flex;
+    flex-flow: column;
+    padding: 20px;
+    border-radius: 15%;
+    max-width: 350px;
+    margin: auto;
+    transition: background-color .5s;
+
+  }
+
+
+
+/********************************************
+                  Tablet 
+********************************************/
+
+
+
+@media (min-width: 361px){
+
+    .categorias{
+        justify-content: space-between;
+    }
+
+    .producto{
+        width: 45%; 
+    }
+}
+
+/********************************************
+                  Desktop 
+********************************************/
+
+@media (min-width: 769px){
+    .producto{
+        width: 23%;
+    }
+}
+

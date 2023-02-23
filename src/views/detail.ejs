@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<link rel="stylesheet" href="/css/detail.css">
+</head>
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Detalle'}) %>
+
+<body>
+	<!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+
+<main>
+
+	<!-- product detail -->
+	<div class="container-products-wrapper">
+		<div class="box-izquierda">
+
+			<figure class="product-detail-img">
+					<img src="/images/products/<%= producto.image %>" alt="product image" class="product-detail-img">
+					</figure>
+			
+		
+			<div class="product-detail">
+
+					<h2 class="product-title">Detalle del juego: <%= producto.name %> </h2>
+
+					<p class="product-detail-description"><%= producto.description %></p>
+			</div>
+		</div>
+
+				<div class="box-derecha">
+					<article class="product-detail-info">
+						<h2 class="product-detail-title"> Información De Pago</h2>
+						
+							<p class="product-detail-price small">
+								<span>$<%= producto.price %></span>
+								/
+								<b><%= producto.discount %>% OFF</b>
+							</p>
+							<p class="product-detail-price">
+							 	Precio Final $ <%=  producto.price - (producto.price * producto.discount / 100) %>
+							</p>
+
+						<ul class="actions-list">
+							<li>
+								<i class="fas fa-credit-card"></i>
+								<p>Pagá en 12 cuotas sin interes</p>
+							</li>
+							<li>
+								<i class="fas fa-store"></i>
+								<p>Retiro gratis en locales del vendedor</p>
+							</li>
+						</ul>
+
+							<div class="campo-boton-comprar">
+								<button type="submit" class="action-button-comprar">COMPRAR AHORA</button>
+							</div>
+
+							<div class="botones-eliminar-editar"> 
+						
+						<!-- <form action="/products/edit/<%= producto.id %>?_method=PUT" method="POST" style="display: inline-flex"> -->
+						
+							<div class="campo-boton-editar">
+								<button type="submit" class="action-button-edit">EDITAR</button>
+							</div>
+						
+						<!-- </form> -->
+
+						<form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+							
+							<div class="campo-boton-eliminar">
+								<button type="submit" class="action-button-delete">ELIMINAR</button>
+							</div>
+
+							</div>
+						</form>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /product detail -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+
+</body>	
+</html>
