@@ -1,0 +1,42 @@
+[
+ {
+  "id": 3,
+  "fullName": "Bruce WAyne",
+  "usuario": "batman ",
+  "email": "juanjocabanellas@gmail.com",
+  "password": "$2a$10$xPkiULZoVOIgnoJfWf4/1essQsnfuI2cWY7OS/d1tfOOQjY74XIJK",
+  "avatar": "1676599729486_img.jpg"
+ },
+ {
+  "id": 4,
+  "fullName": "Clark Kent",
+  "usuario": "Superman57",
+  "email": "pruebas@gmail.com",
+  "password": "$2a$10$DtfYNvGYCxKNrnMZKQB1m.eob.xMkypKiKgLk9.IxJhYFbNhdSYcu",
+  "avatar": "1676599903724_img.jpg"
+ },
+ {
+  "id": 5,
+  "fullName": "Ricardo Fort",
+  "usuario": "RickyFort69",
+  "email": "juanjocabane@llashotmail.com",
+  "password": "$2a$10$eYUp8T5V26ssrrZkwNelVer4LHrYY3AIlrp/4X/AXhci1WqLTr.m2",
+  "avatar": "1677018540038_img.jpg"
+ },
+ {
+  "id": 6,
+  "fullName": "juan",
+  "usuario": "jose",
+  "email": "juanjocabanellas@hotmail.com",
+  "password": "$2a$10$kzbJyv9jOVRcOGWqvUTq9.5Mw1T5zd7nf4k9KMMjnSt46JvEG939m",
+  "avatar": "1677123951233_img.jpg"
+ },
+ {
+  "id": 7,
+  "fullName": "Goku",
+  "usuario": "Kakaroto1986",
+  "email": "kakaroto@live.com.ar",
+  "password": "$2a$10$4beJa6jqyHgoX7BTDgGH/uH/PnYuxIPJ7j6rx4WXVnWbHh/tfUb52",
+  "avatar": "1677188869754_img.jpg"
+ }
+]

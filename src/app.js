@@ -1,10 +1,26 @@
 // ************ Require's ************
 const express = require('express');
+const session = require('express-session');
+const cookies =require("cookie-parser")//guardar cookies del lado del cliente;
 const path = require('path');
 const methodOverride = require('method-override'); // Para poder usar los métodos PUT y DELETE
 
+
 // ************ express() - (don't touch) ************
 const app = express();
+
+const userLoggedMiddleware = require("../middlewares/userLoggedMiddleware");
+
+
+
+app.use(session({//configuracion necesaria para session
+    secret: "Shii, It's a secret",
+    resave: false,
+    saveUninitialized: false,
+}));
+app.use(cookies());
+
+app.use(userLoggedMiddleware);//debe ir despues de session
 
 // ************ Middlewares - (don't touch) ************
 app.use(express.static(path.join(__dirname, '../public')));  // Necesario para los archivos estáticos en el folder /public

@@ -16,8 +16,9 @@ const storage = multer.diskStorage({//disco donde se almacenara la informacion c
         let fileName = `${Date.now()}_img${path.extname(file.originalname)}`
         cb(null,fileName);
     }
-})
+});
 
+//Middlewares
 const uploadFile = multer({storage});//constante para generar el método a subir
 //storage necesita multer para subir el archivo
 
@@ -30,8 +31,8 @@ const validations = [
     body("email")//bail corta las validaciones si no cumple con la primera
         .notEmpty().withMessage("Tienes que escribir un correo electrónico").bail()
         .isEmail().withMessage("Debes escribir un formato de correo válido"),
-    body("password").notEmpty().withMessage("Tienes que escribir una constraseña"),
-    body("country").notEmpty().withMessage("Tienes que elegir un país"),
+    body("password").notEmpty().withMessage("Tienes que escribir una contraseña"),
+  
     body("avatar").custom((value, {req}) =>{//suncion que anailiza el tipo de imagen
         let file = req.file;
         let acceptedExtensions = [ ".jpg", ".png", ".git"];
@@ -45,22 +46,30 @@ const validations = [
             }
         }
         return true;
-
     })
 ]
+const guestMiddleware = require("../../middlewares/guestMiddleware");
+const authMiddleware = require("../../middlewares/authMiddleware")
+
 
 //Formulario de registro
-router.get("/register", usersController.register)
+router.get("/register",guestMiddleware ,usersController.register)
 
 //Procesar el registro ///Agregando validations indicamos las condiciones de arriba
 router.post("/register", uploadFile.single("avatar"), validations, usersController.processRegister)
 //todo esto para procesar enctype multiform part data
 
 //Formulario de login
-router.get("/login", usersController.login);
+router.get("/login", guestMiddleware ,usersController.login);
+
+//Procesar el login
+router.post("/login", usersController.loginProcess);
 
 //Perfil de Usuario
-router.get("/profile/:userId", usersController.profile);
+router.get("/profile/:userId",authMiddleware, usersController.profile);
+
+//Logout
+router.get("/logout", usersController.logout);
 
 
 module.exports = router;

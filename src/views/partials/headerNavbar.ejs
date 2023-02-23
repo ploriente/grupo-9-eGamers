@@ -28,7 +28,11 @@
 			<i class="fas fa-bars"></i>
 		</button>
 
+		
 		<nav class="main-navbar">
+
+		<%  if(locals.isLogged)  { %>	
+
 			<ul class="left-navbar">
 				<li><a href="/products">Todos los juegos</a></li>
 				<li><a href="#">Ofertas</a></li>
@@ -36,12 +40,18 @@
 				<li><a href="/products/create">Vender</a></li>
 				<li><a href="#">Ayuda</a></li>
 			</ul>
+			<ul class="right-navbar">
+				<img src = "/images/avatars/ <%= locals.userLogged.avatar %>" width="40" style="border-radius: 100%">;
+			</ul>
+
+		<% } else { %>
 
 			<ul class="right-navbar">
 				<li><a href="/users/register">Registrate <i class="far fa-address-card"></i></a></li>
 				<li><a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
 				<li><a href="store">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
 			</ul>
+		<%  }  %> 
 		</nav>
 	</div>
 </header>
