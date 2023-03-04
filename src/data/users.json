@@ -38,5 +38,13 @@
   "email": "kakaroto@live.com.ar",
   "password": "$2a$10$4beJa6jqyHgoX7BTDgGH/uH/PnYuxIPJ7j6rx4WXVnWbHh/tfUb52",
   "avatar": "1677188869754_img.jpg"
+ },
+ {
+  "id": 8,
+  "fullName": "Jhon",
+  "usuario": "a",
+  "email": "jhonjhon@gmail.com",
+  "password": "$2a$10$6PwfmwG.car8Q7ZnC6Dd7.vpAfNYpy2HPvyr35PQgIQmAAN6d4mU6",
+  "avatar": "1677961467414_img.png"
  }
 ]

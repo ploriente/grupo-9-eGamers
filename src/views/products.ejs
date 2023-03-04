@@ -18,21 +18,21 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Todos nuestros productos (<%= productos.length %>)</h2>
+				<h2 class="products-title">Todos nuestros productos (<%= products.length %>)</h2>
 			</div>
 			<!-- Mostrar los juegos Nuevos dinámicamente (usando un for o foreach) -->
-			<% productos.forEach(producto => { %>
+			<% products.forEach(products => { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/products/detail/<%= producto.id %>">
+						<a href="/products/detail/<%= products.id %>">
 							<figure class="product-box-image">
-								<img src="/images/products/<%= producto.image %>" alt="imagen de producto">
+								<img src="/images/products/<%= products.image %>" alt="imagen de producto">
 							</figure>
 							<article class="product-box-data">
-								<h2 class="price">$<%= producto.price %></h2>
-								<span class="discount"><p><%= producto.discount %> % </p></span>
-								<p class="game-title"><%= producto.name %></p>
-								<p class="game-description"><%= producto.description %></p>
+								<h2 class="price">$<%= products.price %></h2>
+								<span class="discount"><p><%= products.discount %> % </p></span>
+								<p class="game-title"><%= products.name %></p>
+								<p class="game-description"><%= products.description %></p>
 							</article>
 						</a>
 					</section>
