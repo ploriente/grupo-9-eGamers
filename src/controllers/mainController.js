@@ -6,11 +6,34 @@ const db = require("../database/models");
 
 /* En la constante "products" ya tienen los productos que están 
 guardados en la carpeta Data como Json (un array de objetos literales) */
+
+/*
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+*/
 
 const controller = {
 	index: (req, res) => {
+
+		db.Products.findAll()
+		.then(function(products){
+
+			let productosNuevosFiltrados = products.filter( products => {
+				return products.newGame == true
+			})
+	
+			let productosEnOfertaFiltrados = products.filter( products => {
+				return products.inOffer == true
+			})
+
+			res.render("index", {
+				productosNuevos: productosNuevosFiltrados, 
+				productosEnOferta: productosEnOfertaFiltrados
+				}
+			);
+		})
+
+	/*	
 		// Do the magic
 		const productosLeidos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -27,6 +50,9 @@ const controller = {
 			productosEnOferta: productosEnOfertaFiltrados
 			}
 		);
+
+	*/
+
 	},
 	search: (req, res) => {
 		// Do the magic

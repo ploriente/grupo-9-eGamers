@@ -6,8 +6,10 @@ const db = require("../database/models");
 
 /* En la constante "products" ya tienen los productos que están 
 guardados en la carpeta Data como Json (un array de objetos literales) */
+
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 
 const controller = {
 	// (get) Root - Mostrar todos los juegos
@@ -30,6 +32,13 @@ const controller = {
 
 	// (get) Detail - Detalle de un juego
 	detail: (req, res) => {
+
+		db.Products.findByPk(req.params.id)
+            .then(function(products){
+                res.render("detail", {products: products})
+            })
+
+	/*
 		// Do the magic
 		let id = req.params.id;
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -39,6 +48,8 @@ const controller = {
 		})
 
 		res.render("detail", {producto: productoFiltrado})
+	*/
+	
 	},
 
 	// (get) Create - Formulario para crear
