@@ -7,6 +7,8 @@ const { validationResult } = require("express-validator"); //express validator s
 
 const User = require("../models/User")
 
+const db = require("../database/models"); 
+
 const usersController = {
     register: function(req, res){
      
@@ -14,6 +16,26 @@ const usersController = {
         
 
     },
+    /*
+    processRegister: function (req, res){
+        db.Users.create(
+            {
+                fullName: req.body.fullName,
+                usuario: req.body.usuario,
+                email: req.body.email,
+                password: req.body.password,
+                avatar: req.body.avatar
+            }
+
+        )
+
+        return res.redirect("/users/login");
+    },
+
+    */
+
+    /**/ 
+
     processRegister:(req,res) =>{//capturar las validaciones de rutas
         const resultValidation = validationResult(req);
 //REsult validation no es un array, es un objeto literal que tiene la propiedad errors
@@ -29,9 +51,51 @@ const usersController = {
         }//una vez registrado sin errores
         //return res.send("Ok, las validaciones se pasaron y no tienen errores");
 
-        let userInDB = User.findByField("email", req.body.email);//Este paso es para controlar que el email no se repita
+        db.Users.findAll({
+            where: {
+                email: {[db.Sequelize.Op.like]: req.body.email} 
+            }
+        })//Este paso es para controlar que el email no se repita
+            .then(function(userInDB){
 
-        console.log(userInDB)
+                if (userInDB){ //Validacion para verificar que este en la BD
+                    return res.render("./users/register", {
+                        errors:{
+                            email:{
+                                msg:"Este email ya se encuentra registrado"
+                            }//con esto no se registra de nuevo
+                        },
+                        oldData: req.body
+                    });
+                }
+            })
+            db.Users.create({
+                ...req.body,
+                password: bcryptjs.hashSync(req.body.password, 10),//encritamos la contraseña
+                avatar: req.file.filename//aca guardamos el enlace para que aparezca el link en avatars
+            })
+
+        return res.redirect("/users/login");  
+
+        },
+            
+        /*    
+            .then(function(userToCreate){
+
+                userToCreate = {
+                    ...req.body,
+                    password: bcryptjs.hashSync(req.body.password, 10),//encritamos la contraseña
+                    avatar: req.file.filename//aca guardamos el enlace para que aparezca el link en avatars
+                }
+
+                let userCreated = User.create(userToCreate);
+
+                return res.redirect("/users/login");
+            })
+        /*    
+        //let userInDB = User.findByField("email", req.body.email);//Este paso es para controlar que el email no se repita
+
+        /*console.log(userInDB)
 
         if (userInDB){ //Validacion para verificar que este en la BD
             return res.render("./users/register", {
@@ -42,8 +106,8 @@ const usersController = {
                 },
                 oldData: req.body
             });
-        }
-
+        }*/
+        /*
         let userToCreate = {
             ...req.body,
             password: bcryptjs.hashSync(req.body.password, 10),//encritamos la contraseña
@@ -53,8 +117,13 @@ const usersController = {
         let userCreated = User.create(userToCreate);
 
         return res.redirect("/users/login");
+        
+    
 
     },
+    
+    */
+
     login: function(req, res){ 
         
         res.render("./users/login")
