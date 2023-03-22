@@ -1,0 +1,30 @@
+CREATE DATABASE  IF NOT EXISTS `egamers_db`;
+USE `egamers_db`;
+
+CREATE TABLE `products` (
+   `id` INT NOT NULL AUTO_INCREMENT,
+   `name` VARCHAR(255) NOT NULL,
+   `price` DECIMAL NOT NULL,
+   `discount` DECIMAL NOT NULL DEFAULT 0,
+   `description` VARCHAR(500) NOT NULL DEFAULT "Sin descripción",
+   `image` VARCHAR(400) NOT NULL DEFAULT "default-image.png",
+   `newGame` INTEGER NOT NULL DEFAULT 0,
+   `inOffer` INTEGER NOT NULL DEFAULT 0,
+   `players` VARCHAR(255),
+   `genre` VARCHAR(255),
+   PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `users` (
+   `id` INT NOT NULL AUTO_INCREMENT,
+   `fullName` VARCHAR(255) NOT NULL,
+   `usuario` VARCHAR(255) NOT NULL,
+   `email` VARCHAR(255) NOT NULL,
+   `password` VARCHAR(255) NOT NULL,
+   `avatar` VARCHAR(255) NOT NULL,
+   PRIMARY KEY (`id`)
+);
+
+INSERT INTO `products` VALUES (3,'God Of War 3',30,70,'Unete a Kratos a tomar venganza contra los dioses del Olimpo','editedProductImage-1673993382617.jpg',0,1,NULL,NULL),(4,'Ghost of Tshushima',80,50,'Jin Sakai, heredero al trono del emperador renuncia a su honor, para tomar venganza de los mongoles como el fantasma de Tsushima','editedProductImage-1673905513629.jpg',0,0,NULL,NULL),(5,'Spider-man',80,75,'Ayuda a Peter Parker a mantener Nueva York a salvo de las garras de los 6 siniestros','spiderMan.jpg',0,1,'1','Aventuras'),(7,'The Last Of Us',60,10,'En un mundo gobernado por zombies, Joel atraviesa el país con el objetivo de encontrar la cura','The_Last_of_Us.webp',0,1,'1','Terror'),(8,'TLOF II',90,10,'Vive los crecientes conflictos morales creados por Ellie en su implacable búsqueda de venganza','TLOF2.webp',0,0,'1','Terror'),(9,'Resident Evil 4',100,40,'Sobrevive otra vez en este mundo plagado de zombies','editedProductImage-1673902807810.jpg',0,1,NULL,NULL),(10,'Club Fornite',80,10,'Battlefront','clubFornite.jpg',0,0,NULL,'Aventuras'),(11,'Fifa 23',130,10,'El video juego de futbol del año','fifa23.jpg',1,0,NULL,'Deportes'),(12,'NBA 2023',70,10,'El video juego de fubaloncesto del año','nba2k23.jpg',0,0,'multiplayer','Deportes'),(13,'NBA 2023 - Aguante Boke',70,10,'El video juego de fubaloncesto del año, con Rafael Diseo jugando en LA Lakers','nba2k23.jpg',1,0,'multiplayer','Deportes'),(14,'Mortal Kombat 11',120,10,'Con las nuevas variantes de personaje tendrás un control sin precedentes para personalizar a tus luchadores y hacerlos únicos.','editedProductImage-1673928064951.jpg',0,0,NULL,NULL),(15,'Grand Theft Auto Online',200,40,'Disfruta de la experiencia en GTA Online.','productImage-1673928137498.jpg',1,0,NULL,'indefinida');
+
+INSERT INTO `users` VALUES (1,'Jhon Salchichon','jhon_salchi','jhonsalchichon@gmail.com','$2a$10$AU2sXfY4FcDzJA.KtmJyVuY3lfHM0b/KEiCN0EwEvighIb4uFUcfG','1678558992079_img.png'),(2,'Carlos Salvador Bilardo','bidon_pincha','carlosbilardo@afa.com.ar','$2a$10$WTZEGvMBh0ZRLdvnqn484O3i/n4XuAtmduQ.kQ2/93X..h2/AACgi','1678559343477_img.png'),(3,'Carlos Salvador Bilardo','bidon_pincha','jhonsalchichon@gmail.com','$2a$10$CcWn2jNxCyOJNgCYzksZwuWhAtcVd5CypAbZU7RClwSK7Wr23IXRy','1678560959048_img.png'),(4,'Carlos Salvador Bilardo','bidon_pincha','carlosbilardo@afa.com.ar','$2a$10$nRl9EKL0gUR3oAJhTP8cNujCusEiQ08PE6uc9ltqT72.iUO3fO/MO','1678561045405_img.png'),(5,'Carlos Salvador Bilardo','bidon_pincha','carlosbilardo@afa.com.ar','$2a$10$wWnKq6rpa0hTD3eGkwHAPOr0ZWW7M/0w2NTlqfwoTXQsSaDzZiAVu','1678561256016_img.png'),(6,'Jhon Salchichon','jhon_salchi2001','jhonsalchichon@gmail.com','$2a$10$Aud1dNhmNekek3tbbeTPDOYGKamwha0DawicyiTEWiAb4AQ3HMGjC','1678561334331_img.png'),(7,'Carlos Salvador Bilardo Jr','bidon_pincha_jr','carlosbilardojr@afa.com.ar','$2a$10$OpzdVrn8HSPmF.UqWF/AjOGIg9S6hkr09gbVsUTJDeBU0/XM9uvem','1678564742855_img.png'),(8,'Maradona','mara_dona','mara@dona.com','$2a$10$9fdmsRKpi/rOM5q3lMFPA.FNYTytZAwPGQQcBW5FFjSlOplbcN486','1679018530111_img.jpg');
