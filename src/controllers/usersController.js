@@ -154,15 +154,16 @@ const usersController = {
 
     loginProcess: (req,res) => {//Procesar el formulario //Iniciar sesion
         
-        db.Users.findAll({
+        db.Users.findOne({
 
         where: {
-            usuario: {[db.Sequelize.Op.like]: req.body.usuario} 
+            usuario: {[db.Sequelize.Op.like]: req.body.usuario} //req.body.usuario
         }
         })
         .then(function(userToLogin){
-
+                console.log(userToLogin)
             if (userToLogin) {
+                
                 let isOkThePassword = bcryptjs.compareSync(req.body.password ,userToLogin.password);
                 if(isOkThePassword) {
                     delete userToLogin.password;
@@ -175,9 +176,9 @@ const usersController = {
                     if(req.body.remember_user) {
                         res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 60 })
                     }
-                    return res.redirect("/users/profile"); // si todo es correcto
+                    return res.redirect("./users/profile"); // si todo es correcto
                 }
-                return res.render("login", {
+                return res.render("./users/login", {
                     errors:{
                         email : {
                             msg: "Las credenciales son invalidas" // La contraseña es incorrecta
@@ -185,7 +186,7 @@ const usersController = {
                     }
                 });
             }
-            return res.render("userLoginForm", {
+            return res.render("./users/login", {
                 errors: {
                     email:{
                         msg: "No se encuentra este email en nuestra Base de Datos"
