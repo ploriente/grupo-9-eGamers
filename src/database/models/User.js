@@ -1,46 +1,40 @@
-module.exports = function(sequelize, DataTypes) {
+const {DataTypes, Sequelize} = require("sequelize");
+const sequelize = require("../config/config.js");
 
-    const alias = 'Users';
 
-    const cols = {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true,
-          },
-          fullName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-          },
-          usuario: {
-            type: DataTypes.STRING,
-            allowNull: false,
-          },
-          email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-          },
-          password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-          },
-          avatar: {
-            type: DataTypes.STRING,
-            allowNull: false,
-          }
-      };
-    
-    const config = {
-        tableName: 'users',
-        timestamps: false
+const User = sequelize.define("User",{
+  //Definiendo Campos
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      fullName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      usuario: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      avatar: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      } 
+},{
+    tableName: 'users',
+    timestamps: false
 
-    }
+});
 
-    const Users = sequelize.define(alias, cols, config );
+module.exports = User
   
-    return Users;
-  };
-
-
- 

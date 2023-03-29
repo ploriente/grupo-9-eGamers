@@ -1,12 +1,10 @@
 const fs = require('fs')
 const express = require("express");
 const path = require("path");
-const bcryptjs = require("bcryptjs");// para que podamos hashear contraseñas    
-const { validationResult } = require("express-validator"); //express validator se requiere tantos en rutas y controlador
+const bcryptjs = require("bcryptjs");
+const { check, validationResult } = require("express-validator"); 
+const User = require("../database/models/User.js")
 
-const User = require("../models/User")
-
-const db = require("../database/models"); 
 
 const usersController = {
 
@@ -14,8 +12,55 @@ const usersController = {
         res.render("./users/register");
     },
 
-    processRegister: function (req, res){
-        db.Users.create(
+    processRegister: async function(req, res){
+        //Validaciones 
+        await check ("fullName").notEmpty().withMessage("Tienes que escribir un nombre"),
+        await check("email")
+        .notEmpty().withMessage("Tienes que escribir un correo electronico").bail()
+        .isEmail().withMessage("Debes escribir un formato de correo válido"),
+        await check("password").notEmpty().withMessage("Tienes que escribir una contraseña"),
+        await check("avatar").custom((value, {req}) =>{
+            let file = req.file;
+            let acceptedExtensions = [".jpg", ".png", ".gif"];
+
+            if(!file) {
+                throw new Error("Tienes que subir una imagen")
+            } else {
+                let fileExtension = path.extname(file.originalname);
+                if(!acceptedExtensions.includes(fileExtension)) {
+                    throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(", ")}`);
+
+                }
+                return true;
+            }})
+
+        let resultado = validationResult(req)
+
+        //Verificando que no haya errores
+        if(resultado.errors.length > 0 ) {//quiere decir si hubiese errores
+            return res.render("./users/register", {//si hay errores se vuelve a mandar el formulario
+                errors: resultado.mapped(),//convertimos el array en un objeto literal
+                oldData: req.body
+            });
+        }
+
+        const {fullName, email, password} = req.body
+
+        //Verificando que el usuario no esté duplicado
+
+        const existeUsuario = await User.findOne({where: {email}})
+        if(existeUsuario) {
+            return res.render("./users/register",{
+                errors: {
+                    email: {
+                        msg:"Este email ya se encuentra registrado"
+                    }                    
+                },
+                oldData:req.body
+            })
+        }
+        
+        db.User.create(
             {
                 fullName: req.body.fullName,
                 usuario: req.body.usuario,
@@ -23,69 +68,18 @@ const usersController = {
                 password: req.body.password,
                 avatar: req.body.avatar
             }
-
         )
-
-        return res.redirect("/users/login");
+        return res.redirect("./users/login");
     },
 
     
 
-
-    processRegister:(req,res) =>{//capturar las validaciones de rutas
-        const resultValidation = validationResult(req);
-//REsult validation no es un array, es un objeto literal que tiene la propiedad errors
-
-
-        console.log(resultValidation)
-
-        if(resultValidation.errors.length > 0 ) {//quiere decir si hubiese errores
-            return res.render("./users/register", {//si hay errores se vuelve a mandar el formulario
-                errors: resultValidation.mapped(),//convertimos el array en un objeto literal
-                oldData: req.body
-            });
-        }//una vez registrado sin errores
-        //return res.send("Ok, las validaciones se pasaron y no tienen errores");
-
-        db.Users.findAll({
-            where: {
-                email: {[db.Sequelize.Op.like]: req.body.email} 
-            }
-        })//Este paso es para controlar que el email no se repita
-            .then(function(userInDB){
-
-                if (userInDB){ //Validacion para verificar que este en la BD
-                    return res.render("./users/register", {
-                        errors:{
-                            email:{
-                                msg:"Este email ya se encuentra registrado"
-                            }//con esto no se registra de nuevo
-                        },
-                        oldData: req.body
-                    });
-                }
-            })
-            db.Users.create({
-                ...req.body,
-                password: bcryptjs.hashSync(req.body.password, 10),//encritamos la contraseña
-                avatar: req.file.filename//aca guardamos el enlace para que aparezca el link en avatars
-            })
-
-        return res.redirect("/users/login");  
-
-        },
-    
-
-
     login: function(req, res){ 
-        
         res.render("./users/login")
     },
 
     loginProcess: (req,res) => {//Procesar el formulario //Iniciar sesion
-        
         db.Users.findOne({
-
         where: {
             usuario: {[db.Sequelize.Op.like]: req.body.usuario} //req.body.usuario
         }

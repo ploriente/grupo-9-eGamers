@@ -1,6 +1,6 @@
 // usamos este middleware para mostrar ciertas vistas que solo se ven estando loggeados
 
-const User = require("../src/models/User");//En mayusculas
+const User = require("../src/database/models/User.js");//En mayusculas
 
 function userLoggedMiddleware(req,res,next) {
     res.locals.isLogged = false; //res.locals son variables que comparto con toas las vistas

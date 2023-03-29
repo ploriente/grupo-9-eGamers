@@ -33,7 +33,7 @@ const validations = [
         .isEmail().withMessage("Debes escribir un formato de correo válido"),
     body("password").notEmpty().withMessage("Tienes que escribir una contraseña"),
   
-    body("avatar").custom((value, {req}) =>{//suncion que anailiza el tipo de imagen
+    body("avatar").custom((value, {req}) =>{//funcion que analiza el tipo de imagen
         let file = req.file;
         let acceptedExtensions = [ ".jpg", ".png", ".git"];
 
@@ -53,7 +53,7 @@ const authMiddleware = require("../../middlewares/authMiddleware")
 
 
 //Formulario de registro
-router.get("/register",guestMiddleware ,usersController.register)
+router.get("/register", guestMiddleware ,usersController.register)
 
 //Procesar el registro ///Agregando validations indicamos las condiciones de arriba
 router.post("/register", uploadFile.single("avatar"), validations, usersController.processRegister)
