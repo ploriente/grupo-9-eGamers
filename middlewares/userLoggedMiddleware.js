@@ -1,5 +1,4 @@
 // usamos este middleware para mostrar ciertas vistas que solo se ven estando loggeados
-
 const User = require("../src/database/models/User.js");//En mayusculas
 
 function userLoggedMiddleware(req,res,next) {
