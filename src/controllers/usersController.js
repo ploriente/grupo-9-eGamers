@@ -1,7 +1,6 @@
 const fs = require('fs')
 const express = require("express");
 const path = require("path");
-
 const bcryptjs = require("bcryptjs");// para que podamos hashear contraseñas    
 const { validationResult } = require("express-validator"); //express validator se requiere tantos en rutas y controlador
 
@@ -11,12 +10,8 @@ const db = require("../database/models");
 
 const usersController = {
 
-
     register: function(req, res){
-     
         res.render("./users/register");
-        
-
     },
 
     processRegister: function (req, res){
