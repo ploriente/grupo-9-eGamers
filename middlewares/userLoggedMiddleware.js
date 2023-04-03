@@ -1,22 +1,28 @@
-// usamos este middleware para mostrar ciertas vistas que solo se ven estando loggeados
-const User = require("../src/database/models/User.js");//En mayusculas
+const User = require("../src/database/models/User.js");
+const user = new User();
 
-function userLoggedMiddleware(req,res,next) {
-    res.locals.isLogged = false; //res.locals son variables que comparto con toas las vistas
-    //luego hay que modificarlas en el navBar
+async function userLoggedMiddleware(req, res, next) {
+  res.locals.isLogged = false;
 
-    let emailIncookie = req.cookies.userEmail;
-    let userFromCookie = User.findByField("email", emailIncookie);//importante para el boton recordame
+  let emailIncookie = req.cookies.userEmail;
 
-    if (userFromCookie) {
+  if (emailIncookie) {
+    try {
+      let userFromCookie = await user.findOne({ where: { email: emailIncookie } });
+      if (userFromCookie) {
         req.session.userLogged = userFromCookie;
+      }
+    } catch (error) {
+      console.log(error);
     }
-    if(req.session.userLogged) {
-        res.locals.isLogger = true;
-        res.locals.userLogged = req.session.userLogged; //pasando lo que tengo a nivel sesion a nivel lcoal
-    }
+  }
 
-    next();
+  if (req.session.userLogged) {
+    res.locals.isLogged = true;
+    res.locals.userLogged = req.session.userLogged;
+  }
+
+  next();
 }
 
 module.exports = userLoggedMiddleware;

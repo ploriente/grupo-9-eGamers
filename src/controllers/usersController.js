@@ -1,10 +1,12 @@
+//Requires
 const fs = require('fs')
 const express = require("express");
 const path = require("path");
 const bcryptjs = require("bcryptjs");
 const { check, validationResult } = require("express-validator"); 
-const User = require("../database/models/User.js")
-
+const User = require("../database/models/User.js");
+const db = require("../database/models/index.js");
+const Op = db.Sequelize.Op;
 
 const usersController = {
 
@@ -44,7 +46,7 @@ const usersController = {
             });
         }
 
-        const {fullName, email, password} = req.body
+        const {fullName,usuario, email, password} = req.body
 
         //Verificando que el usuario no esté duplicado
 
@@ -60,12 +62,12 @@ const usersController = {
             })
         }
         
-        db.User.create(
+        User.create(
             {
-                fullName: req.body.fullName,
-                usuario: req.body.usuario,
-                email: req.body.email,
-                password: req.body.password,
+                fullName: fullName,
+                usuario: usuario,
+                email: email,
+                password: password,
                 avatar: req.body.avatar
             }
         )
@@ -79,7 +81,7 @@ const usersController = {
     },
 
     loginProcess: (req,res) => {//Procesar el formulario //Iniciar sesion
-        db.Users.findOne({
+        User.findOne({
         where: {
             usuario: {[db.Sequelize.Op.like]: req.body.usuario} //req.body.usuario
         }
