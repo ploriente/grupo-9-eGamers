@@ -2,32 +2,28 @@ const fs = require('fs')
 const express = require("express");
 const path = require("path");
 
-const bcryptjs = require("bcryptjs");// para que podamos hashear contraseñas    
-const { validationResult } = require("express-validator"); //express validator se requiere tantos en rutas y controlador
+const bcryptjs = require("bcryptjs");    
+const { validationResult } = require("express-validator");
 
 const User = require("../models/User")
-
 const db = require("../database/models"); 
 
+
+
+
 const usersController = {
-
-
+    //Registro
     register: function(req, res){
-     
         res.render("./users/register");
-        
-
     },
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////    REGISTER : METODO VIEJO NO TOCAR    //////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
-    
+    //Proceso de Registro
     processRegister: function (req, res){
-        db.Users.create(
+
+        const resultValidation = validationResult(req);
+        console.log(validationResult)
+
+        db.Users.create(   //Users que es el alias de la tabla modelo
             {
                 fullName: req.body.fullName,
                 usuario: req.body.usuario,
@@ -41,20 +37,14 @@ const usersController = {
         return res.redirect("/users/login");
     },
 
-    
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     processRegister:(req,res) =>{//capturar las validaciones de rutas
         const resultValidation = validationResult(req);
 //REsult validation no es un array, es un objeto literal que tiene la propiedad errors
 
 
-        console.log(resultValidation)
+        console.log(resultValidation);
+    
 
         if(resultValidation.errors.length > 0 ) {//quiere decir si hubiese errores
             return res.render("./users/register", {//si hay errores se vuelve a mandar el formulario
