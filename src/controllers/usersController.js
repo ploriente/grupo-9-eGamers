@@ -21,124 +21,45 @@ const usersController = {
     processRegister: function (req, res){
 
         const resultValidation = validationResult(req);
-        console.log(validationResult)
+        console.log(validationResult);
 
-        db.Users.create(   //Users que es el alias de la tabla modelo
-            {
+        if (resultValidation.errors.lenght > 0){
+            return res.render("./users/register", {
+                errors: resultValidation.mapped(),
+                oldData: req.body 
+            });
+        }
+        db.Users.findOne({
+            where: {
+                email: {[db.Sequelize.Op.like]: req.body.email}
+            }
+        }).then(function(userInDB){
+            if(userInDB){
+                return res.render("./users/register",{
+                    errors:{
+                        email:{
+                            msg:"Este email ya se encuentra registrado"
+                        }
+                    },
+                    oldData: req.body
+                });
+            }
+        })
+
+        db.Users.create({   //Users que es el alias de la tabla modelo
                 fullName: req.body.fullName,
                 usuario: req.body.usuario,
                 email: req.body.email,
-                password: req.body.password,
-                avatar: req.body.avatar
-            }
-
-        )
-
-        return res.redirect("/users/login");
-    },
-
-
-    processRegister:(req,res) =>{//capturar las validaciones de rutas
-        const resultValidation = validationResult(req);
-//REsult validation no es un array, es un objeto literal que tiene la propiedad errors
-
-
-        console.log(resultValidation);
-    
-
-        if(resultValidation.errors.length > 0 ) {//quiere decir si hubiese errores
-            return res.render("./users/register", {//si hay errores se vuelve a mandar el formulario
-                errors: resultValidation.mapped(),//convertimos el array en un objeto literal
-                oldData: req.body
-            });
-        }//una vez registrado sin errores
-        //return res.send("Ok, las validaciones se pasaron y no tienen errores");
-
-        db.Users.findAll({
-            where: {
-                email: {[db.Sequelize.Op.like]: req.body.email} 
-            }
-        })//Este paso es para controlar que el email no se repita
-            .then(function(userInDB){
-
-                if (userInDB){ //Validacion para verificar que este en la BD
-                    return res.render("./users/register", {
-                        errors:{
-                            email:{
-                                msg:"Este email ya se encuentra registrado"
-                            }//con esto no se registra de nuevo
-                        },
-                        oldData: req.body
-                    });
-                }
-            })
-            db.Users.create({
-                ...req.body,
-                password: bcryptjs.hashSync(req.body.password, 10),//encritamos la contraseña
-                avatar: req.file.filename//aca guardamos el enlace para que aparezca el link en avatars
-            })
-
-        return res.redirect("/users/login");  
-
-        },
-    
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////    REGISTER : METODO VIEJO NO TOCAR    //////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-        /*    
-            .then(function(userToCreate){
-
-                userToCreate = {
-                    ...req.body,
-                    password: bcryptjs.hashSync(req.body.password, 10),//encritamos la contraseña
-                    avatar: req.file.filename//aca guardamos el enlace para que aparezca el link en avatars
-                }
-
-                let userCreated = User.create(userToCreate);
-
+                password: bcryptjs.hashSync(req.body.password,10),
+                avatar: req.file.filename
+            }).then(function(userCreated){
                 return res.redirect("/users/login");
             })
-            
-        //let userInDB = User.findByField("email", req.body.email);//Este paso es para controlar que el email no se repita
-
-        console.log(userInDB)
-
-        if (userInDB){ //Validacion para verificar que este en la BD
-            return res.render("./users/register", {
-                errors:{
-                    email:{
-                        msg:"Este email ya se encuentra registrado"
-                    }//con esto no se registra de nuevo
-                },
-                oldData: req.body
-            });
-        }
-        
-        let userToCreate = {
-            ...req.body,
-            password: bcryptjs.hashSync(req.body.password, 10),//encritamos la contraseña
-            avatar: req.file.filename//aca guardamos el enlace para que aparezca el link en avatars
-        }
-
-        let userCreated = User.create(userToCreate);
-
-        return res.redirect("/users/login");
-        
-    
-
     },
     
-    */
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+/////////////////////////
 
     login: function(req, res){ 
-        
         res.render("./users/login")
     },
 
