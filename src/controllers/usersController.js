@@ -64,15 +64,12 @@ const usersController = {
     },
 
     loginProcess: (req,res) => {//Procesar el formulario //Iniciar sesion
-        
         db.Users.findOne({
-
         where: {
-            usuario: {[db.Sequelize.Op.like]: req.body.usuario} //req.body.usuario
+            usuario: {[db.Sequelize.Op.like]: req.body.usuario} 
         }
         })
         .then(function(userToLogin){
-                console.log(userToLogin)
             if (userToLogin) {
                 
                 let isOkThePassword = bcryptjs.compareSync(req.body.password ,userToLogin.password);
