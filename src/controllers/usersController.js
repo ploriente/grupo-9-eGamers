@@ -71,7 +71,6 @@ const usersController = {
         })
         .then(function(userToLogin){
             if (userToLogin) {
-                
                 let isOkThePassword = bcryptjs.compareSync(req.body.password ,userToLogin.password);
                 if(isOkThePassword) {
                     delete userToLogin.password;
