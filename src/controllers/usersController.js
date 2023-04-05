@@ -57,7 +57,7 @@ const usersController = {
             })
     },
     
-/////////////////////////
+///////
 
     login: function(req, res){ 
         res.render("./users/login")
@@ -110,50 +110,7 @@ const usersController = {
 
     },
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////    LOGIN : METODO VIEJO NO TOCAR    /////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-    loginProcess: (req,res) => {//Procesar el formulario //Iniciar sesion
-        
-        let userToLogin = User.findByField("email", req.body.email)
-
-        if (userToLogin) {
-            let isOkThePassword = bcryptjs.compareSync(req.body.password ,userToLogin.password);
-            if(isOkThePassword) {
-                delete userToLogin.password;
-                req.session.userLogged = userToLogin;
-
-                if(req.body.remember_user){
-                    res.cookie("userEmail", req.body.email , {maxAge: 1000* 120})
-                }
-
-                if(req.body.remember_user) {
-                    res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 60 })
-                }
-                return res.redirect("/users/profile"); // si todo es correcto
-            }
-            return res.render("login", {
-                errors:{
-                    email : {
-                        msg: "Las credenciales son invalidas" // La contraseña es incorrecta
-                    }
-                }
-            });
-        }
-        return res.render("userLoginForm", {
-            errors: {
-                email:{
-                    msg: "No se encuentra este email en nuestra Base de Datos"
-                }
-            }
-        });
-    },
-
-*/
 
 
     profile: (req, res) => {
