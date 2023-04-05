@@ -57,7 +57,7 @@ const usersController = {
             })
     },
     
-///////
+    ///////
 
     login: function(req, res){ 
         res.render("./users/login")
