@@ -20,7 +20,7 @@ app.use(session({//configuracion necesaria para session
 }));
 app.use(cookies());
 
-app.use(userLoggedMiddleware);//debe ir despues de session
+//app.use(userLoggedMiddleware);//debe ir despues de session
 
 // ************ Middlewares - (don't touch) ************
 app.use(express.static(path.join(__dirname, '../public')));  // Necesario para los archivos estáticos en el folder /public

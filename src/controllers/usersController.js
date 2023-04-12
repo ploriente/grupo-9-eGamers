@@ -5,7 +5,8 @@ const path = require("path");
 const bcryptjs = require("bcryptjs");    
 const { validationResult } = require("express-validator");
 
-const User = require("../models/User")
+//const User = require("../models/User")
+const User = require("../database/models/User.js")
 const db = require("../database/models"); 
 
 
@@ -64,25 +65,21 @@ const usersController = {
     },
 
     loginProcess: (req,res) => {//Procesar el formulario //Iniciar sesion
-        db.Users.findOne({
+        db.Users.findAll({
         where: {
-            usuario: {[db.Sequelize.Op.like]: req.body.usuario} 
+            email: req.body.usuario
         }
         })
         .then(function(userToLogin){
-            if (userToLogin) {
-                let isOkThePassword = bcryptjs.compareSync(req.body.password ,userToLogin.password);
+            
+            if (userToLogin.length > 0) {
+                let contrasenaUsuario = userToLogin[0].password;
+                let isOkThePassword = bcryptjs.compareSync(req.body.password ,contrasenaUsuario);
+                
                 if(isOkThePassword) {
-                    delete userToLogin.password;
+                    delete userToLogin[0].password;
                     req.session.userLogged = userToLogin;
-    
-                    if(req.body.remember_user){
-                        res.cookie("userEmail", req.body.email , {maxAge: 1000* 120})
-                    }
-    
-                    if(req.body.remember_user) {
-                        res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 60 })
-                    }
+                    //req.cookie("email", req.body.usuario, {maxAge: (1000*60)*6})
                     return res.redirect("./users/profile"); // si todo es correcto
                 }
                 return res.render("./users/login", {
@@ -102,17 +99,7 @@ const usersController = {
             });
 
         })
-
-        .then(function(user){
-            res.render("./users/profile", {user: req.session.userLogged})
-        })
-
-
     },
-
-
-
-
     profile: (req, res) => {
         console.log(req.cookies.userEmail)
         return res.render("profile", {

@@ -24,7 +24,7 @@
 
         <div class="login-widget">
 
-                <form method="post" action="/users/login" class="formulario-login" enctype="multipart/form-data">
+                <form method="post" action="/users/login" class="formulario-login" >
                         <div class="campo">
                             <input type="text" name="usuario" placeholder="Nombre de usuario" required="">
                             <% if(locals.errors && errors.email) {%> 
