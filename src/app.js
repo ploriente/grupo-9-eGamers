@@ -35,11 +35,13 @@ app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la 
 // ************ Route System require and use() - (don't touch) ************
 const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
-const userRouter= require("./routes/userRoutes")
+const userRouter= require("./routes/userRoutes");
+const apiRouter= require("./routes/api");
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use("/users", userRouter);
+app.use("/api", apiRouter);
 
 
 // ************ Set the server to listen - (don't touch) ************
