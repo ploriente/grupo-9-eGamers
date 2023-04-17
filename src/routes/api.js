@@ -9,6 +9,8 @@ const apiController = require('../controllers/apiController');
 router.get('/', apiController.index);
 router.get('/products/', apiController.products);
 router.get('/products/:id/', apiController.detail);
+router.get('/users/', apiController.users);
+router.get('/users/:id/', apiController.profile);
 
 
 module.exports = router;
