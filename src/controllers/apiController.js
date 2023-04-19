@@ -1,3 +1,4 @@
+
 const db = require("../database/models"); 
 
 const controller = {
@@ -29,16 +30,32 @@ const controller = {
             })
     },
 
-    users: (req, res) => {
-
-		db.Users.findAll()
-            .then(function(users){
-                res.status(200).json({
-                    count: users.length,
-                    data: users,
+   users: async function (req, res)  {
+        try {
+            let users = await db.Users.findAll()
+            let usersData = users.map(function (user) {
+               let userObj = 
+               {
+                id : user.id,
+                fullName: user.fullName,
+                usuario: user.usuario,
+                email: user.email,
+                avatar: user.avatar
+               }
+               return userObj
+            }
+       )
+          
+            res.status(200).json({
+                    count: usersData.length,
+                    data: usersData,
                     status:200
+            
                 })
-            })
+
+        } catch (error) {
+            console.log(error);
+        }
 	},
 
     profile: (req, res) => {
