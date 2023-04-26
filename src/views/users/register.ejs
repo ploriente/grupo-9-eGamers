@@ -14,7 +14,7 @@
                         Header 
 ************************************************************************-->
 
-<%- include('../partials/header', {title: 'Register'}) %>    
+<%- include('../partials/header', {title: 'Login'}) %>    
 
 <!--***********************************************************************
                         Register
@@ -30,12 +30,12 @@
                     <label><b>Nombre Completo:</b></label>
                     <div class="campo">
                         <input
-                            id="nombre"
-                            type="text"
-                            name="fullName"
-                            placeholder="Nombre Completo" 
-                            class="form-control <%=locals.errors && errors.fullName? "is-invalid" : null %>"
-                            value = "<%= locals.oldData ? oldData.fullName : null %>"
+                        id="nombre"
+                        type="text"
+                        name="fullName"
+                        placeholder="Nombre Completo" 
+                        class="form-control <%=locals.errors && errors.fullName? "is-invalid" : null %>"
+                        value = "<%= locals.oldData ? oldData.fullName : null %>"
 
                     >
                     <% if(locals.errors &&errors.fullName) { %>

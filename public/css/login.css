@@ -4,8 +4,12 @@
     box-sizing: border-box;
     font-family: 'Chivo Mono', monospace;
 
-}
+    }
 
+
+/*////////////////////////////////////////////////////////////*/
+/*///////////////////  LOGIN /////////////////////////////////*/
+/*////////////////////////////////////////////////////////////*/
 
 main {
     /*
@@ -37,16 +41,17 @@ main {
 .campo {
     display: block;
     margin-bottom: 2rem;
-    padding-left: 0.75rem;
+    /* padding-left: 0.75rem; */
     width: 100%;
     background-color: #ffffff;
     border-radius: 4px;
 }
 
 .campo input {
-    width: 100%;
+    width: 100%; 
     /* height: 100%; */
     padding: 0.75rem 0;
+    margin: 0.25rem 0 ;
 }
 
 input {
@@ -69,6 +74,7 @@ button, input {
     border-radius: 4px;
     color: #ffffff;
 }
+
 
 .error {
     background-color: #ffcccc;

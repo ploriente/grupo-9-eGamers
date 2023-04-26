@@ -136,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
         formulario.submit()
+        
 
     })
     function validarEmail(email) {
