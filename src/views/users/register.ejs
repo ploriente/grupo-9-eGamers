@@ -14,7 +14,7 @@
                         Header 
 ************************************************************************-->
 
-<%- include('../partials/header', {title: 'Login'}) %>    
+<%- include('../partials/header', {title: 'Register'}) %>    
 
 <!--***********************************************************************
                         Register
@@ -30,11 +30,12 @@
                     <label><b>Nombre Completo:</b></label>
                     <div class="campo">
                         <input
-                        type="text"
-                        name="fullName"
-                        placeholder="Nombre Completo" required=""
-                        class="form-control <%=locals.errors && errors.fullName? "is-invalid" : null %>"
-                        value = "<%= locals.oldData ? oldData.fullName : null %>"
+                            id="nombre"
+                            type="text"
+                            name="fullName"
+                            placeholder="Nombre Completo" 
+                            class="form-control <%=locals.errors && errors.fullName? "is-invalid" : null %>"
+                            value = "<%= locals.oldData ? oldData.fullName : null %>"
 
                     >
                     <% if(locals.errors &&errors.fullName) { %>
@@ -46,12 +47,14 @@
                     
 
                     </div>
+                    <label><b>Nombre de usuario:</b></label>
                     <div class="campo">
-                        <label><b>Nombre de usuario:</b></label>
+                        
                         <input 
+                            id="usuario"
                             type="text" 
                             name="usuario" 
-                            placeholder="Usuario" required=""
+                            placeholder="Usuario" 
                             class="form-control <%=locals.errors && errors.usuario? "is-invalid" : null %>"
                         value = "<%= locals.oldData ? oldData.usuario : null %>"
 
@@ -63,12 +66,13 @@
                     <%} %>
 
                     </div>
+                    <label><b>Correo electronico: </b></label>
                     <div class="campo">
-                        <label><b>Correo electronico : </b></label>
                         <input 
+                        id="email"
                         type="text" 
                         name="email" 
-                        placeholder="Dirección de email" required=""
+                        placeholder="Dirección de email" 
                         class ="form-control <%= locals.errors && errors.mail ? "is-invalid" : null  %> "
                         value="<%= locals.oldData ? oldData.email :null %>"
                     >
@@ -80,13 +84,14 @@
                     </div>
 
 
-                   
+                    <label><b>Password: </b></label>
                     <div class="campo">
-                        <label><b>password: </b></label>
+                        
                         <input 
+                            id="password"
                             type="password" 
                             name="password" 
-                            placeholder="Contraseña" required=""
+                            placeholder="Contraseña" 
                             class="form-control <%=locals.errors && errors.password ? "is-invalid" : null %>"
                     >
                     <% if (locals.errors && errors.password) { %>
@@ -96,14 +101,10 @@
                     <% } %> 
                     </div>
 
-                     
-
-
-
-
-                    <div class ="form-group">
-                        <label><b>Imagen de perfil</b></label>
+                    <label><b>Imagen de perfil</b></label>
+                    <div class ="form-group ">
                         <input
+                        id="imagen"
                         type="file"
                         name="avatar"
                         class="form-control <%=locals.errors && errors.avatar ? "is-invalid" : null%>"
@@ -116,13 +117,6 @@
                     </div>
 
 
-
-
-
-                    <!-- <div class="campo">
-                        <input type="password" name="contraseñaRepite" placeholder="Repetir Contraseña" required="">
-            <form method="POST" action="/src/controllers/usersController" class="formulario-register" enctype="multipart/form-data">
-                    </div> -->
                     <div class="campo, boton-crear">
                         <button type="submit">Crear Usuario</button>
                     </div>
@@ -139,7 +133,7 @@
 <%- include('../partials/footer') %>
 <!-- /footer -->
         
-
+    <script src="/js/register.js"></script>
 
 </body>
 </html>

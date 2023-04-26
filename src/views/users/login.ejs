@@ -25,17 +25,31 @@
         <div class="login-widget">
 
                 <form method="post" action="/users/login" class="formulario-login" >
+
+                        <label><b>Email</b></label>
                         <div class="campo">
-                            <input type="text" name="usuario" placeholder="Nombre de usuario" required="">
-                            <% if(locals.errors && errors.email) {%> 
-                                <div class ="text-danger">
-                                    <%= errors.email.msg %> 
-                                </div>
-                            <% } %> 
+                            <input 
+                                id="email"
+                                type="email"  
+                                name="email" 
+                                class="formulario-login" 
+                                placeholder="Email" >
+                                <% if(locals.errors && errors.email) {%> 
+                                    <div class ="text-danger">
+                                        <%= errors.email.msg %> 
+                                    </div>
+                                <% } %> 
                         
                         </div>
+
+                        <label><b>Contraseña</b></label>
                         <div class="campo">
-                            <input type="password" name="password" placeholder="Contraseña" required="">
+                            <input 
+                            id="password"
+                            type="password" 
+                            name="password" 
+                            class="formulario-login" 
+                            placeholder="Contraseña">
                         </div>
                         <div class="campo, boton-entrar">
                             <button type="submit">Entrar</button>
@@ -54,6 +68,8 @@
 <!-- footer -->
 <%- include('../partials/footer') %>
 <!-- /footer -->
+
+    <script src="/js/login.js"></script> 
 
 </body>
 </html>
