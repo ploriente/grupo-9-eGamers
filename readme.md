@@ -10,13 +10,9 @@
 
 #### Grupo 9 - Integrantes:
 
-* Lisandro Florentín: Economista argentino. Entusiasta del desarrollo de producto y tecnología.   
-* Juan José Cabanellas
-Soy farmacéutico y a lo largo de la carrera empecé a sentir curiosidad sobre las tecnologías y la programación, esperando convertirme un profesional en estas áreas además. Siempre dispuesto a aprender y hacer más
-* Alejo Corvalán: Me gusta todo lo relacionado a la informática, en un futuro mi deseo es ser desarrollador de videojuegos además de páginas web.
-* Pablo Loriente:
-  Soy abogado, trabajado en el Poder Judicial. Mis inicios en la programacion fue en Visual Basic 6.0, bases de datos (MAccess, SQL Server 7), Crystal Reports. Siempre me encanto la programacion y diseño de programas a medida, algo que quiero aprender en entorno web y con este curso busco poder dar el puntapie inicial para llegar a ser un buen programador, un gran profesional e insertarme en el mundo IT.
-* Johann Wrede
+* Lisandro Florentín: Economista argentino. Apasionado por el desarrollo de producto y tecnología.   
+* Juan José Cabanellas: Soy farmacéutico y a lo largo de la carrera empecé a sentir curiosidad sobre las tecnologías y la programación, esperando convertirme un profesional en estas áreas además. Siempre dispuesto a aprender y hacer más
+* Pablo Loriente: Soy abogado, trabajado en el Poder Judicial. Mis inicios en la programacion fue en Visual Basic 6.0, bases de datos (MAccess, SQL Server 7), Crystal Reports. Siempre me encanto la programacion y diseño de programas a medida, algo que quiero aprender en entorno web y con este curso busco poder dar el puntapie inicial para llegar a ser un buen programador, un gran profesional e insertarme en el mundo IT.
 
 -------------------------------------------------------
 
