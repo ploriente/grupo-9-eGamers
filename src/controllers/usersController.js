@@ -18,45 +18,53 @@ const usersController = {
         res.render("./users/register");
     },
 
-    //Proceso de Registro
+    // Proceso de Registro
     processRegister: function (req, res){
 
-        const resultValidation = validationResult(req);
-        console.log(validationResult);
+    const resultValidation = validationResult(req);
+    console.log(validationResult);
 
-        if (resultValidation.errors.lenght > 0){
-            return res.render("./users/register", {
-                errors: resultValidation.mapped(),
-                oldData: req.body 
+    if (resultValidation.errors.lenght > 0){
+        return res.render("./users/register", {
+            errors: resultValidation.mapped(),
+            oldData: req.body 
+        });
+    }
+    
+    db.Users.findOne({
+        where: {
+            email: {[db.Sequelize.Op.like]: req.body.email}
+        }
+    }).then(function(userInDB){
+        if(userInDB){
+            return res.render("./users/register",{
+                errors:{
+                    email:{
+                        msg:"Este email ya se encuentra registrado"
+                    }
+                },
+                oldData: req.body
             });
         }
-        db.Users.findOne({
-            where: {
-                email: {[db.Sequelize.Op.like]: req.body.email}
-            }
-        }).then(function(userInDB){
-            if(userInDB){
-                return res.render("./users/register",{
-                    errors:{
-                        email:{
-                            msg:"Este email ya se encuentra registrado"
-                        }
-                    },
-                    oldData: req.body
-                });
-            }
-        })
 
-        db.Users.create({   //Users que es el alias de la tabla modelo
-                fullName: req.body.fullName,
-                usuario: req.body.usuario,
-                email: req.body.email,
-                password: bcryptjs.hashSync(req.body.password,10),
-                avatar: req.file.filename
-            }).then(function(userCreated){
-                return res.redirect("/users/login");
-            })
-    },
+        let avatarFileName;
+        if (req.file) {
+        avatarFileName = req.file.filename;
+        } else {
+        avatarFileName = "defaulImage.png"; // o un valor predeterminado para indicar que no hay archivo
+        }
+
+        db.Users.create({
+            fullName: req.body.fullName,
+            usuario: req.body.usuario,
+            email: req.body.email,
+            password: bcryptjs.hashSync(req.body.password,10),
+            avatar: avatarFileName
+        }).then(function(userCreated){
+            return res.redirect("/users/login");
+        })
+    })
+},
     
     ///////
 
@@ -64,23 +72,60 @@ const usersController = {
         res.render("./users/login")
     },
 
+/*
+db.Products.findByPk(req.params.id)
+            .then(function(products){
+                res.render("detail", {products: products})
+            })
+*/
+
     loginProcess: (req,res) => {//Procesar el formulario //Iniciar sesion
         db.Users.findAll({
         where: {
-            email: req.body.usuario
+            email: req.body.email
         }
         })
         .then(function(userToLogin){
-            
+
+            console.log(req.body)
+            //console.log(userToLogin)
+
+
             if (userToLogin.length > 0) {
                 let contrasenaUsuario = userToLogin[0].password;
-                let isOkThePassword = bcryptjs.compareSync(req.body.password ,contrasenaUsuario);
-                
+
+                console.log(userToLogin[0].password)
+                console.log(req.body.password)
+
+                let isOkThePassword = bcryptjs.compareSync(req.body.password ,userToLogin[0].password);
+                console.log(isOkThePassword)
+
+
                 if(isOkThePassword) {
                     delete userToLogin[0].password;
-                    req.session.userLogged = userToLogin;
+
+                    //console.log(userToLogin[0])
+
+                    req.session.userLogged = {
+                        id: userToLogin[0].id,
+                        user: userToLogin[0].usuario,
+                        fullName: userToLogin[0].fullName,
+                        email: userToLogin[0].email,
+                        avatar: userToLogin[0].avatar
+                      };
+
+                      
+                    //let  userLoggeado = req.session.userLogged;
+                    console.log(req.session.userLogged)
+                    //console.log(userToLogin)
                     //req.cookie("email", req.body.usuario, {maxAge: (1000*60)*6})
-                    return res.redirect("./users/profile"); // si todo es correcto
+                    //return res.redirect("./profile"); // si todo es correcto
+                    //let userLoggeado = req.session.userLogged;
+                    return res.render('users/profile', { userLogged: req.session.userLogged }); // si todo es correcto
+                    //return res.render('users/profile', { userLogged: userLoggeado });
+                    
+                    
+                    
                 }
                 return res.render("./users/login", {
                     errors:{
@@ -100,17 +145,47 @@ const usersController = {
 
         })
     },
+
+    /*
+    function authMiddleware(req, res, next) {
+    if(!req.session.userLogged){// si no esta autenticado vaya a login
+        return res.redirect ("/users/login");
+    }
+    next (); // Si esta autenticado prosiga
+
+}
+
+    */
+
+
+    /*
     profile: (req, res) => {
-        console.log(req.cookies.userEmail)
-        return res.render("profile", {
-            user: req.session.userLogged
-        });
+
+        if(req.session.userLogged){// si esta autenticado vaya a login
+        //    return res.redirect ("/users/login");
+        return res.render('users/profile', { userLogged: req.session.userLogged });
+        }
+
+        //res.render('./users/profile', { userLogged: req.session.userLogged }); // si todo es correcto
     },
 
-    logout: (req,res) => {
-        res.clearCookie("userEmail");// si no se destruye la cookie de recordame queda iniciado sesion por siempre
-        req.session.destroy(); //borra toda cosa que este en sesion
-        return res.redirect("/");
+    */
+
+
+    profile: (req, res) => {
+    
+        if (req.session.userLogged) {
+            return res.render('users/profile', { userLogged: req.session.userLogged });
+          } else {
+            // Usuario no autenticado, redirigir a la página de inicio de sesión
+            res.redirect('/login');
+          }
+        },
+
+          logout: (req, res) => {
+            delete req.session.userLogged;
+            console.log('Sesión cerrada correctamente');
+            res.redirect('/');
+        }
     }
-}
 module.exports = usersController;

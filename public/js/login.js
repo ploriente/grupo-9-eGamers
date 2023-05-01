@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function(){
     const emailInput = document.querySelector("#email")
     const passwordInput = document.querySelector("#password")
     const boton = document.querySelector("button");
-    
+    const formulario = document.querySelector(".formulario-login")
+
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
         
@@ -63,6 +64,12 @@ document.addEventListener("DOMContentLoaded", function(){
             return false;
         }
         
-        })
+        // Si todos los campos son válidos, enviamos el formulario
+        formulario.submit();
     })
-  
+})
+
+function validarEmail(email) {
+    const expresionRegular = /\S+@\S+\.\S+/;
+    return expresionRegular.test(email);
+}

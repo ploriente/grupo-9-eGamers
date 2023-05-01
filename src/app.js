@@ -13,10 +13,11 @@ const userLoggedMiddleware = require("../middlewares/userLoggedMiddleware");
 
 
 
-app.use(session({//configuracion necesaria para session
-    secret: "Shii, It's a secret",
-    resave: false,
-    saveUninitialized: false,
+app.use(session({
+  secret: 'super secreto',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 3600000, path: '/' } // 1 hora
 }));
 app.use(cookies());
 

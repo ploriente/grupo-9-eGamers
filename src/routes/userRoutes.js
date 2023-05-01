@@ -66,7 +66,13 @@ router.get("/login", guestMiddleware ,usersController.login);
 router.post("/login", usersController.loginProcess);
 
 //Perfil de Usuario
-router.get("/profile/:userId",authMiddleware, usersController.profile);
+//router.get("/profile",authMiddleware, usersController.loginProcess);
+
+//Perfil de Usuario
+//router.get("/profile",authMiddleware, usersController.profile);
+
+router.get("/profile", authMiddleware, usersController.profile);
+
 
 //Logout
 router.get("/logout", usersController.logout);

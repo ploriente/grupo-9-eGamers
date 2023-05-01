@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function(){
             }, 5000);
             return false;
         }else if( passwordInput.value.trim().length<6){
-            //alert("La contraseña debe tener al menos 6 caracteres");
+            //alert("La contraseña debe tener al menos 8 caracteres");
             passwordInput.focus();
             const divMensaje = document.createElement("div");
             divMensaje.classList.add("error");
@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function(){
             return false;
         }
 
+/*        
         //validando imagen
         if(imagenInput.files.length === 0){
             imagenInput.focus();
@@ -134,11 +135,14 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         }
 
+*/
+
 
         formulario.submit()
         
 
     })
+    
     function validarEmail(email) {
         const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
         return regexEmail.test(email);
