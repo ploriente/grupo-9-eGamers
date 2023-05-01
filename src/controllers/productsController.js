@@ -60,27 +60,27 @@ const controller = {
 	// (post) Create - Método para guardar la info
 
 	processCreate: (req, res) => {
-		const { name, price, discount, description, image, newGame, inOffer, players, genre } = req.body;
-	
-		let avatarFileName = "defaultImage.png";
-		if (req.file) {
-		  avatarFileName = req.file.filename;
-		}
-	
-		db.Products.create({
-		  name,
-		  price,
-		  discount,
-		  description,
-		  image: avatarFileName,
-		  newGame: newGame ? 1 : 0,
-		  inOffer: inOffer ? 1 : 0,
-		  players,
-		  genre,
-		})
-		  .then((product) => {
-			return res.redirect("/products");
-		  })
+    const { name, price, discount, description, image, newGame, inOffer, players, genre } = req.body;
+
+    let avatarFileName = "defaultImage.png";
+    if (req.file) {
+      avatarFileName = req.file.filename;
+    }
+
+    db.Products.create({
+      name,
+      price,
+      discount,
+      description,
+      image: avatarFileName,
+      newGame: newGame ? 1 : 0,
+      inOffer: inOffer ? 1 : 0,
+      players,
+      genre,
+    })
+      .then((product) => {
+        return res.redirect("/products");
+      })
 
 	},
 
@@ -164,19 +164,22 @@ const controller = {
 	},
 
 	// (delete) Delete - Eliminar un juego de la DB
-	destroy : (req, res) => {
-		// Do the magic
-		let id = req.params.id;
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-		let productosFiltrados = products.filter(producto => {
-			return producto.id != id
+	destroy: (req, res) => {
+	  
+		db.Products.destroy({
+			where: {
+				id: req.params.id
+			}
+			})
+		.then(() => {
+		  return res.redirect('/products');
 		})
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(productosFiltrados, null, " "));
-
-		res.redirect("/products");
-	}
+		.catch(error => {
+		  console.log(error);
+		  return res.status(500).send('Error eliminando el producto');
+		});
+	  }
+	  
 };
 
 module.exports = controller;

@@ -4,7 +4,15 @@
     box-sizing: border-box;
     font-family: 'Chivo Mono', monospace;
 }
-  
+
+#tittle-logout{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -27,7 +35,7 @@
   }
   
   h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   h3 {
@@ -128,7 +136,7 @@
   }
   
   .profile-info a {
-    color: #007bff;
+    color: white;
   }
   
   .profile-info a:hover {
@@ -137,7 +145,7 @@
   
   .btn-profile-edit {
     background-color: transparent;
-    color: #007bff;
+    color: white;
     border-color: #007bff;
   }
   
@@ -165,3 +173,33 @@
   }
 
   
+  .create-section {
+    display: flex;
+    align-items: center;
+    }
+    
+    .btn-create {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    }
+    
+    .btn-create:hover {
+    background-color: #007bff;
+    color: #fff;
+    }
+    
+    .btn-create:focus,
+    .btn-create.focus {
+    box-shadow: none;
+    outline: none;
+    }
+
+    .profile-section{
+        padding-bottom: 2cm;
+    }

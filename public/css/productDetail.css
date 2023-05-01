@@ -1,7 +1,4 @@
-img {
-    margin-left: 15px;
-    margin-top: 15px;
-}
+
 figcaption {
     margin-left: 15px;
 }
@@ -13,4 +10,15 @@ span{
     font-style: italic;
     text-decoration: underline;
     background-color: lightgray;
+}
+
+
+.product-detail-img, .product-detail-img img {
+    max-width: 200px;
+  }
+  
+
+  img {
+    margin-left: 15px;
+    margin-top: 15px;
 }
