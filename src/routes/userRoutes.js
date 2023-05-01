@@ -8,7 +8,7 @@ const multer = require("multer")// metodo para generar middlewares
 
 const {body} =require("express-validator")// body es una función dentro del paquete express-validator
 
-const storage = multer.diskStorage({//disco donde se almacenara la informacion consta de estas dos propiedades con parametros
+/*const storage = multer.diskStorage({//disco donde se almacenara la informacion consta de estas dos propiedades con parametros
     destination: (req, file, cb) =>{
         cb(null, "./public/images/avatars")//guardamos img usuarios aca
     },
@@ -16,7 +16,17 @@ const storage = multer.diskStorage({//disco donde se almacenara la informacion c
         let fileName = `${Date.now()}_img${path.extname(file.originalname)}`
         cb(null,fileName);
     }
+});*/
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, "public/images/avatars")
+    },
+    filename: function(req, file, cb) {
+        cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname))
+    }
 });
+
 
 //Middlewares
 const uploadFile = multer({storage});//constante para generar el método a subir

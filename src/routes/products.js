@@ -15,16 +15,16 @@ const storage = multer.diskStorage({
     filename: function(req, file, cb) {
         cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname))
     }
-})
+});
 
-const upload = multer({storage: storage})
+const upload = multer({storage: storage});
 
 // Devolver un producto 
 router.get('/detail/:id/', productsController.detail);
 
 // Crear un producto
 router.get('/create/', productsController.create);
-router.post('/create/', upload.single("productImage"), productsController.processCreate);
+router.post('/create/', upload.single("image"), productsController.processCreate);
 
 // Devolver todos los productos  
 router.get('/', productsController.index);

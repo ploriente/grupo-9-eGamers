@@ -100,18 +100,6 @@
   "inOffer": false
  },
  {
-  "id": 13,
-  "name": "NBA 2023 - Aguante Boke",
-  "price": 70,
-  "discount": 10,
-  "description": "El video juego de fubaloncesto del año, con  Rafael Diseo jugando en LA Lakers",
-  "players": "multiplayer",
-  "image": "nba2k23.jpg",
-  "genre": "Deportes",
-  "newGame": true,
-  "inOffer": false
- },
- {
   "id": 14,
   "name": "Mortal Kombat 11",
   "price": "120",
@@ -131,38 +119,5 @@
   "image": "productImage-1673928137498.jpg",
   "newGame": true,
   "inOffer": false
- },
- {
-  "id": 16,
-  "name": "STAR WARS Jedi: Survivor",
-  "price": "200",
-  "discount": "10",
-  "genre": "indefinida",
-  "description": "La historia de Cal Kestis continúa en STAR WARS Jedi",
-  "image": "productImage-1673993664951.jpg",
-  "newGame": true,
-  "inOffer": false
- },
- {
-    "id": 17,
-    "name": "Grand Theft Auto Online",
-    "price": "200",
-    "discount": "40",
-    "genre": "indefinida",
-    "description": "Disfruta de la experiencia en GTA Online.",
-    "image": "productImage-1673928137498.jpg",
-    "newGame": false,
-    "inOffer": false
-   },
-   {
-    "id": 18,
-    "name": "Grand Theft Auto Online",
-    "price": "200",
-    "discount": "40",
-    "genre": "indefinida",
-    "description": "Disfruta de la experiencia en GTA Online.",
-    "image": "productImage-1673928137498.jpg",
-    "newGame": false,
-    "inOffer": false
-   }
+ }
 ]

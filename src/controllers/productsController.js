@@ -58,14 +58,40 @@ const controller = {
 	},
 	
 	// (post) Create - Método para guardar la info
+
 	processCreate: (req, res) => {
-		// Do the magic
-		/* Incorporar FS */
-		/* Leer el archivo */
+		const { name, price, discount, description, image, newGame, inOffer, players, genre } = req.body;
+	
+		let avatarFileName = "defaultImage.png";
+		if (req.file) {
+		  avatarFileName = req.file.filename;
+		}
+	
+		db.Products.create({
+		  name,
+		  price,
+		  discount,
+		  description,
+		  image: avatarFileName,
+		  newGame: newGame ? 1 : 0,
+		  inOffer: inOffer ? 1 : 0,
+		  players,
+		  genre,
+		})
+		  .then((product) => {
+			return res.redirect("/products");
+		  })
+
+	},
+
+
+/*
+	processCreate: (req, res) => {
+	
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 		let productoNuevo = {
-			/* revisar el ultimo producto, y tomar su ID. Luego sumarle 1 */
+			
 			id: products[products.length - 1].id + 1,
 			name: req.body.name,
 			price: req.body.price,
@@ -76,13 +102,15 @@ const controller = {
 			newGame: true, //FALTA PROGRAMAR ESTE CAMPO
 			inOffer: false //FALTA PROGRAMAR ESTE CAMPO
 		}
-		/* Push */
+		
 		products.push(productoNuevo)
-		/* Convertir a JSON */
-		/* Escribir sobre el archivo json */
+		
+		
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
 		res.redirect("/products");
 	},
+
+*/
 
 	// (get) Update - Formulario para editar
 	edit: (req, res) => {

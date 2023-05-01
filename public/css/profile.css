@@ -4,118 +4,67 @@
     box-sizing: border-box;
     font-family: 'Chivo Mono', monospace;
 }
-
-/*////////////////////////////////////////////////////////////*/
-/*///////////////////  LOGIN /////////////////////////////////*/
-/*////////////////////////////////////////////////////////////*/
-
-main {
-    height: 100%;
-    width: 100%;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .row {
     display: flex;
-    justify-content: center;
-}
-
-.container {
-    margin-top: 40px;
-}
-
-.row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-h1 {
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  h1, h2, h3 {
+    margin: 20px 0;
+  }
+  
+  h1 {
     font-size: 2.5rem;
     text-align: center;
-}
-
-h2 {
-    margin-bottom: 10px;
+  }
+  
+  h2 {
     font-size: 2rem;
-}
-
-h3 {
-    margin-bottom: 5px;
+  }
+  
+  h3 {
     font-size: 1.5rem;
-}
-
-/* login widget styles */
-.login-widget {
-    width: 80%;
-    height: 80%;
-    background-color: lightgray;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 50px;
-}
-
-.formulario-login {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    margin: 1rem 0;
-}
-
-.campo {
-    display: block;
-    margin-bottom: 2rem;
-    width: 100%;
-    background-color: #ffffff;
-    border-radius: 4px;
-}
-
-.campo input {
-    width: 100%; 
-    padding: 0.75rem 0;
-    margin: 0.25rem 0 ;
-    border: none;
-    background-image: none;
-    background-color: transparent;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    outline: none;
-}
-
-.boton-entrar button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #03264C;
-    border-radius: 4px;
-    color: #ffffff;
-    border: none;
-}
-
-.error {
-    background-color: #ffcccc;
-    border: 1px solid #ff0000;
-    padding: 0.5rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
     border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.btn-danger {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.15s ease-in-out,
+                border-color 0.15s ease-in-out;
+  }
+  
+  .btn:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .btn:focus,
+  .btn.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  .btn-danger {
     background-color: #dc3545;
     color: #fff;
     border-color: #dc3545;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.15s ease-in-out,
-                border-color 0.15s ease-in-out,
-                box-shadow 0.15s ease-in-out;
   }
   
   .btn-danger:hover {
@@ -126,6 +75,93 @@ h3 {
   .btn-danger:focus,
   .btn-danger.focus {
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
-    outline: 0;
+    outline: none;
   }
+  
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Perfil de Usuario */
+  body {
+    background-color: #f8f9fa;
+  }
+  
+  .profile-avatar {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+  }
+  
+  .profile-avatar img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .profile-info {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-info h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  .profile-info h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+  
+  .profile-info h3 {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+  }
+  
+  .profile-info a {
+    color: #007bff;
+  }
+  
+  .profile-info a:hover {
+    text-decoration: none;
+  }
+  
+  .btn-profile-edit {
+    background-color: transparent;
+    color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-profile-edit:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-profile-edit:focus,
+  .btn-profile-edit.focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .logout-section {
+    padding-bottom: 1cm;
+  }
+
+  .profile-avatar {
+    max-width: 500px; /* Cambiar 200px al valor deseado */
+    max-height: 400px; /* Cambiar 200px al valor deseado */
+    border: 3px solid rgb(255, 255, 255); /* Añadir un borde de 3px y un color gris */
+    border-radius: 2%; /* Hacer que el borde sea redondeado */
+    object-fit: cover; /* Ajustar la imagen al tamaño máximo sin deformarla */
+  }
+
   
