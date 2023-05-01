@@ -14,6 +14,36 @@
 
 <main>
 
+	<div class="search-container" id="search-container-id">
+			
+			<form action="/products/search" method="GET">
+			<div class="search">	
+			  <input type="text" name="search" placeholder="Buscar productos...">
+			  <button type="submit">Buscar</button>
+			</div>
+			<div class="filter">
+			  <select name="genre">
+				<option value="">Seleccionar género</option>
+				<option value="acción">Acción</option>
+				<option value="aventura">Aventura</option>
+				<option value="deportes">Deportes</option>
+				<option value="estrategia">Estrategia</option>
+			  </select>
+			  <label for="inOffer">
+				<input type="checkbox" id="inOffer" name="inOffer" value="true">
+				En oferta
+			  </label>
+			  <label for="newGame">
+				<input type="checkbox" id="newGame" name="newGame" value="true">
+				Nuevo juego
+			  </label>
+			  <button type="submit">Filtrar</button>
+			</div>
+			</form>
+	</div>
+		  
+	
+
 	<!-- Todos los juegos -->
 	<div class="container products-wrapper">
 		<div class="row">

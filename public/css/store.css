@@ -39,6 +39,74 @@ main{
 
 /*====== Products ======*/
 
+.search-container form {
+  width: 90%;
+}
+
+.search{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.filter{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+div .search-container #search-container{
+  height: 160px;
+  padding: 10px;
+}
+
+div .search-container {
+  height: 160px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="text"], select {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 4px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  background-color: #011627;
+  color: white;
+  padding: 12px 20px;
+  margin: 8px 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+label {
+  margin: 8px 4px;
+}
+
+input[type="checkbox"] {
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+
 .container{
     background-color: #c0c0c0;
 }

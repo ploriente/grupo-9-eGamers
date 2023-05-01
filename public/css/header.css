@@ -89,7 +89,7 @@ header{
 /*////////////////////////////////////////////////////////////*/
 
 .search-container {
-    height: 80px;
+    height: 160px;
     display: flex;
     justify-content: space-around;
     align-content: space-around;

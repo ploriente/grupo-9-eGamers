@@ -2,6 +2,10 @@ const fs = require('fs');
 const path = require('path');
 
 const db = require("../database/models"); 
+const { name } = require('ejs');
+const { Op } = require('sequelize');
+
+
 
 
 /* En la constante "products" ya tienen los productos que están 
@@ -28,6 +32,48 @@ const controller = {
 
 		*/
 
+	},
+
+	search: (req, res) => {
+
+		const { search, genre, inOffer, newGame } = req.query;
+		let whereClause = {
+			[Op.or]: [
+			  { name: { [Op.like]: `%${search}%` } },
+			  { description: { [Op.like]: `%${search}%` } },
+			  { genre: { [Op.like]: `%${search}%` } },
+			],
+		  };
+		  
+		  if (genre) {
+			whereClause.genre = genre;
+		  }
+		  if (inOffer) {
+			whereClause.inOffer = true;
+		  }
+		  if (newGame) {
+			whereClause.newGame = true;
+		  }
+		  
+		  db.Products.findAll({ where: whereClause }).then(function(products) {
+			res.render("products", { products: products });
+		  });
+
+		/*
+		const { search } = req.query;
+  		db.Products.findAll({
+    		where: {
+				[Op.or]: [
+				  { name: { [Op.like]: `%${search}%` } },
+				  { description: { [Op.like]: `%${search}%` } },
+				  { genre: { [Op.like]: `%${search}%` } },
+				]
+			  }
+  		}).then(function(products){
+			res.render("products", {products: products})
+		})
+		*/
+		
 	},
 
 	// (get) Detail - Detalle de un juego
