@@ -160,54 +160,42 @@ const controller = {
 
 	// (get) Update - Formulario para editar
 	edit: (req, res) => {
-		// Do the magic
-		let id = req.params.id;
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-		let productoFiltrado = products.find(producto => {
-			return producto.id == id
-		})
+		db.Products.findByPk(req.params.id)
+            .then(function(products){
+                res.render("product-edit-form", {producto: products})
+            })
 
-		res.render("product-edit-form", {producto: productoFiltrado})
 	},
 	// (put) Update - Método para actualizar la info
 	processEdit: (req, res) => {
-		// Do the magic
-
-		/* Incorporar FS */
-		/* Leer el archivo */
-		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-		let id = req.params.id;
-		let productoAnterior = products.find(producto => {
-			return producto.id == id
-		})
-
-		let productoEditado = {
-			/* dejar el id anterior */
-			id: productoAnterior.id,
-			name: req.body.name,
-			price: req.body.price,
-			discount: req.body.discount,
-			//genre: "indefinida", req.body.category NO MODIFICAMOS ESTE DATO AUN
-			description: req.body.description,
-			image: req.file ? req.file.filename : productoAnterior.image,
-			newGame: false, //FALTA PROGRAMAR ESTE CAMPO
-			inOffer: true //FALTA PROGRAMAR ESTE CAMPO
+		const { name, price, discount, description, image, newGame, inOffer, players, genre } = req.body;
+	
+		let avatarFileName = "defaultImage.png";
+		if (req.file) {
+		  avatarFileName = req.file.filename;
 		}
-		/* Modificar el array en la posición correspondiente */
-		
-		let indice = products.findIndex(product => {
-			return product.id == id
-		})
-
-		products[indice] = productoEditado;
-
-		/* Convertir a JSON */
-		/* Escribir sobre el archivo json */
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-		res.redirect("/products");
-	},
+	
+		db.Products.update({
+		  name,
+		  price,
+		  discount,
+		  description,
+		  image: avatarFileName,
+		  newGame: newGame ? 1 : 0,
+		  inOffer: inOffer ? 1 : 0,
+		  players,
+		  genre,
+		},{
+			where: {
+				id: req.params.id
+			}
+			})
+		  .then((product) => {
+			return res.redirect("/products");
+		  })
+	
+		},
 
 	// (delete) Delete - Eliminar un juego de la DB
 	destroy: (req, res) => {

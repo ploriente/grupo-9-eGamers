@@ -125,11 +125,18 @@ div .campo{
 }
 
 
-.campo-boton-editar button {
+
+.campo-boton-editar {
     width: 260px;
     padding: 0.75rem;
     background-color: #03264C;
     border-radius: 4px;
+    color: #ffffff;
+}
+
+.action-button-edit{
+    
+    background-color: #03264C;
     color: #ffffff;
 }
 

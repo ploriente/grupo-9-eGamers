@@ -33,25 +33,9 @@ router.get('/', productsController.index);
 
 router.get('/search', productsController.search);
 
-/*
-app.get('/buscar-productos', async (req, res) => {
-  const { nombre } = req.query;
-  const productos = await Producto.findAll({
-    where: {
-      nombre: {
-        [Op.iLike]: `%${nombre}%`
-      }
-    }
-  });
-  res.render('productos', { productos });
-});
-*/
-
-
-
 // Editar un producto
 router.get('/edit/:id', productsController.edit);
-router.put('/edit/:id', upload.single("editedProductImage"), productsController.processEdit);
+router.put('/edit/:id', upload.single("image"), productsController.processEdit);
 
 // Eliminar un producto
 router.delete('/delete/:id', productsController.destroy);

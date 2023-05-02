@@ -62,11 +62,13 @@
 							<div class="botones-eliminar-editar"> 
 						
 						<!-- <form action="/products/edit/<%= products.id %>?_method=PUT" method="POST" style="display: inline-flex"> -->
-						
+							
 							<div class="campo-boton-editar">
-								<button type="submit" class="action-button-edit">EDITAR</button>
+								<a href="/products/edit/<%= products.id %>"  class="action-button-edit">EDITAR</a>				
 							</div>
-						
+							
+
+							
 						<!-- </form> -->
 
 						<form action="/products/delete/<%= products.id %>?_method=DELETE" method="POST" style="display: inline-flex">
